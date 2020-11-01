@@ -1,6 +1,8 @@
 
 #include <iostream>
 #include <map>
+#include "Notes.h"
+
 using namespace std;
 
 class ATM;
