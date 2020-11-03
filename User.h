@@ -2,9 +2,9 @@
 
 #include <string>
 #include <iostream>
-using namespace std;
 #include <list>
 #include "Account.h"
+using namespace std;
 
 class User {
 
@@ -34,5 +34,12 @@ public:
 
 	void seeAllTransactions();
 	void createTransaction();
-	//............write all methods..
+	void stopAutomatedTransaction();
+	void putMoneyInMyAccount();
+	void putMoneyInAnotherAccount();
+	void withdrawMoneyFromAccount();
+	void checkBalance();
+	void takeCredit();
+	void openDeposit();
+	void closeDeposit();
 };

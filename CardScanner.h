@@ -24,11 +24,11 @@ public:
 	//if password is correct then accept the card
 	bool acceptCard();
 	//scan data,check if card number is in database(valid)
-	void readCard();
+	void readCard(string);
 	//if 3 times pin is incorrect or if card number incorrect => eject card
 	void ejectCard();
 	//if pin is incorrect => reject card
-	void retractCard();
+	void retractCard(string);
 
 	void setCurrNumOfTrials();
 	size_t getCurrNumOfTrials() const;

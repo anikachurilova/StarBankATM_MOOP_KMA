@@ -36,6 +36,7 @@ public:
 	// User owner() const { return _owner; }
 	 string getExpiryDate() const { return _expiryDate; }
 	 string getCardNumber() const { return _cardnumber; }
+    string getPin() const { return _PIN; }
 	 bool isBlocked() const { return _blocked; }
 
 	int  getAttempts();
@@ -84,7 +85,7 @@ public:
 	inline const string& reason() const { return _reason; }
 };
 
-class Account::BadPIN
+class BadPIN
 {
 private:
 	const string _reason;
