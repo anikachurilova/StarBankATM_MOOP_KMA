@@ -1,0 +1,59 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.17"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "StarBankATM_MOOP_KMA",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "StarBankATM_MOOP_KMA::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-StarBankATM_MOOP_KMA-Debug-dc14cc239ab935ad1079.json",
+					"name" : "StarBankATM_MOOP_KMA",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Tiana_/source/repos/anikachurilova/StarBankATM_MOOP_KMA/out/build/x64-Debug",
+		"source" : "C:/Users/Tiana_/source/repos/anikachurilova/StarBankATM_MOOP_KMA"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}
