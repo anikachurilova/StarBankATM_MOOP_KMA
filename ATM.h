@@ -5,12 +5,12 @@ using namespace std;
 #include "CardScanner.h"
 #include "CashDispencer.h"
 #include "SessionManager.h"
-#include "Notes.h"
+
 
 class ATM
 {
 private:
-	
+
 	const size_t _id;
 
 	CardScanner _cardScanner;
@@ -20,14 +20,16 @@ private:
 	ATM(const ATM&);				//this is not using
 	ATM& operator=(const ATM&);		//this is not using
 
+    map<int,int> _notesMap;
+
 public:
 	ATM();
 	~ATM();
 	 size_t getId() const { return _id; }
 	 CashDispencer& getDispenser() { return _dispenser; }
 	 CardScanner& getCardReader() { return _cardScanner; }
-
-
+void setTotalCashAmount();
+    map<int,int> getNotesMap() { return _notesMap; }
 	//Dispenser's API
 	 bool isCorrectAmount(int amount) const {
 		return _dispenser.isCorrectAmount(amount);

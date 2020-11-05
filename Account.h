@@ -12,6 +12,7 @@ private:
 	//User _owner;
 	string _expiryDate;
 	string _PIN;
+	int _limit;
 
 	int _balance;
 	int _attempts;
@@ -25,14 +26,15 @@ public:
 	class BadAccount;
 	class BadPIN;
 
-	Account(const User& owner, const string& PIN,
-		const string& cardnumber, const string& expiryDate, const int balance);
+	Account(const User& owner, string& PIN,
+		const string& cardnumber, const string& expiryDate, int balance, int limit);
 
 	Account(const Account&);
 	~Account();
 	Account& operator=(const Account&);
 
 	 int    balance() const { return _balance; }
+    int    limit() const { return _limit; }
 	// User owner() const { return _owner; }
 	 string getExpiryDate() const { return _expiryDate; }
 	 string getCardNumber() const { return _cardnumber; }

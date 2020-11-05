@@ -1,9 +1,7 @@
-
 #include <iostream>
 #include <string>
-using namespace std;
-
 #include "Account.h"
+using namespace std;
 
 class ATM;
 class CardScanner
