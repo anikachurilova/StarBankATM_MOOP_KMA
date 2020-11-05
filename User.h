@@ -9,15 +9,14 @@ using namespace std;
 class User {
 
 private:
-	size_t _ID;
+	size_t _id;
 	string _firstName;
 	string _lastName;
 	list<Account> _allAccounts;
 public:
 	User();
-	User(const size_t id, const string& firstName,
-		const string& lastName, list<Account> _allAccounts);
-	
+	User(const size_t, const string&,
+		const string&, list<Account>);
 	User(const User&);
 	~User();
 	Account& operator=(const Account&);
@@ -26,10 +25,10 @@ public:
 	void setLastName(const string& lastName);
 	void setID(const string& lastName);//???
 
-	size_t getID() { return _ID; };
+	size_t getID() { return _id; };
 	string getFirstName() const { return _firstName; };
 	string getLastName() const { return _lastName; };
-	list<Account> getAllAccounts()const { return _allAccounts; };
+    list<Account> getAllAccounts()const { return _allAccounts; };
 
 	void seeAllTransactions();
 	void createTransaction();

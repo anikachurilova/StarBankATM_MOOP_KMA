@@ -26,14 +26,14 @@ public:
     { return _account; }
 
 	//if password is correct then accept the card
-	bool acceptCard();
+	bool pinIsCorrect(string s){return _account->getPin()==s;}
 	//scan data,check if card number is in database(valid)
 	void readCard(string);
 	//if 3 times pin is incorrect or if card number incorrect => eject card
 	void ejectCard();
 	//if pin is incorrect => retract card
 	void retractCard(string);
-
+    void checkPin(string);
 	size_t getCurrNumOfTrials() const{return _currNumOfTrials;}
 
 };
