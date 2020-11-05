@@ -7,7 +7,6 @@ using namespace std;
 class Account
 {
 private:
-	
 	string _cardnumber;
 	//User _owner;
 	string _expiryDate;

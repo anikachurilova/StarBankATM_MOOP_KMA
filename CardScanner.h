@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include "Account.h"
+#include "ATM.h"
+#include <map>
 using namespace std;
 
 class ATM;
@@ -10,7 +12,7 @@ private:
 	ATM& _atm;
 	Account* _account;
 	static const size_t NUMBER_TRIALS = 3;
-	size_t currNumOfTrials;
+	size_t _currNumOfTrials;
 	CardScanner(const CardScanner&);
 	CardScanner& operator=
 		(const CardScanner&);
@@ -18,6 +20,10 @@ private:
 public:
 	CardScanner(ATM&);
 	~CardScanner();
+	Account* activeAccount() const
+    { return _account; }
+     bool isActiveAccount() const
+    { return _account; }
 
 	//if password is correct then accept the card
 	bool acceptCard();
@@ -25,11 +31,10 @@ public:
 	void readCard(string);
 	//if 3 times pin is incorrect or if card number incorrect => eject card
 	void ejectCard();
-	//if pin is incorrect => reject card
+	//if pin is incorrect => retract card
 	void retractCard(string);
 
-	void setCurrNumOfTrials();
-	size_t getCurrNumOfTrials() const;
+	size_t getCurrNumOfTrials() const{return _currNumOfTrials;}
 
 };
 

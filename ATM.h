@@ -10,7 +10,7 @@ using namespace std;
 class ATM
 {
 private:
-
+    map<Account> _accountList;
 	const size_t _id;
 
 	CardScanner _cardScanner;
@@ -28,23 +28,7 @@ public:
 	 size_t getId() const { return _id; }
 	 CashDispencer& getDispenser() { return _dispenser; }
 	 CardScanner& getCardReader() { return _cardScanner; }
-void setTotalCashAmount();
-    map<int,int> getNotesMap() { return _notesMap; }
-	//Dispenser's API
-	 bool isCorrectAmount(int amount) const {
-		return _dispenser.isCorrectAmount(amount);
-	}
-	
-	 map<Notes, int> outcash(int total)
-	{
-		//return _dispenser.outcash(total);
-	}
-	 map<Notes, int> incash(int _50 = 1000, int _100 = 1000, int _200 = 400,
-		int _500 = 500)
-	{
-		//return _dispenser.incash(_50, _100, _200, _500);
-	}
-
+    map<Account> getAccountList(){return _accountList;}
 	
 	 void    readCard() { _cardScanner.readCard(); }
 	 void pushOutCard() { _cardScanner.ejectCard(); }

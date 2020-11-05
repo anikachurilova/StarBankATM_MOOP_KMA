@@ -8,7 +8,6 @@ using namespace std;
 
 class User {
 
-
 private:
 	size_t _ID;
 	string _firstName;
