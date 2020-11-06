@@ -1,41 +1,59 @@
-
 #include <iostream>
 #include <map>
-#include "Notes.h"
-
 using namespace std;
 
 class ATM;
 class CashDispencer
 {
 private:
-	
-	static const int _MIN_AMOUNT=50;
-	static const int _50_AMOUNT;
-	static const int _100_AMOUNT;
-	static const int _200_AMOUNT;
-	static const int _500_AMOUNT;
-
-	int _totalCashAmount;
-
-	ATM& _atm;
-	CashDispencer(const CashDispencer&);
-	CashDispencer& operator=
-		(const CashDispencer&);
+    bool _blocked=false;
+    static const int _MIN_AMOUNT=50;
+    int _totalCashAmount;
+    map<int,int> _notesMap;
+    map<int,int> _notesOutMap;
+    ATM& _atm;
+    CashDispencer(const CashDispencer&);
+    CashDispencer& operator=
+            (const CashDispencer&);
 
 public:
-	CashDispencer(ATM&);
-	~CashDispencer();
-
-	bool isCorrectAmount(int) const;
-
-	void checkCash(int);
-	map<Notes, int> incash(int _50 = 1000, int _100 = 1000, int _200 = 400,
-		int _500 = 500);
-	map<Notes, int> outcash(int amountToDispense);
-
-	int getTotalCashAmount() const {return _totalCashAmount;}
+    class BadAmount;
+    CashDispencer(ATM&);
+    ~CashDispencer();
+    bool isBlocked(){return _blocked;} // if is blocked - we cant withdraw money
+    void initialiseNotes();
+    bool has50(int x = 0)  { return _notesMap[50] - x > 0; }
+    bool has100(int x = 0)  { return _notesMap[100] - x > 0; }
+    bool has200(int x = 0)  { return _notesMap[200] - x > 0; }
+    bool has500(int x = 0)  { return _notesMap[500] - x > 0; }
+    bool isCorrectAmount(int) ;
+    int getTotalCashAmount() const {return _totalCashAmount;}
+    void setTotalCashAmount();
+    void incashMoney(int);
+    const map<int, int> calculateNotesOut(const int);
+    void updateNotesMap(map<int,int>);
+    const map<int, int> getNotesOut(const int);
 };
 
+class CashDispencer::BadAmount
+{
+private:
+    const string _reason;
+    const int _number;
+
+public:
+    BadAmount(string reason, const int num)
+            :_reason(reason), _number(num)
+    {
+        return;
+    }
+
+    ~BadAmount() { }
+
+    void diagnose() const{
+        cerr << _reason << endl;
+        cerr << ' ' << _number << endl;
+    }
+};
 ostream& operator<<(ostream&, CashDispencer&);
 

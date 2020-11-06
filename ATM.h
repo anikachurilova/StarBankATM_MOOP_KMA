@@ -1,65 +1,44 @@
 #pragma once
 #include <iostream>
+#include <vector>
 using namespace std;
 
 #include "CardScanner.h"
 #include "CashDispencer.h"
 #include "SessionManager.h"
-#include "Notes.h"
+
 
 class ATM
 {
 private:
-	
-	const size_t _id;
+    map<string,Account> _accountList;
+    CardScanner _cardScanner;
+    CashDispencer  _dispenser;
+    SessionManager* _sessionManager;
 
-	CardScanner _cardScanner;
-	CashDispencer  _dispenser;
-	SessionManager* _sessionManager;
+    ATM(const ATM&);				//this is not using
+    ATM& operator=(const ATM&);		//this is not using
 
-	ATM(const ATM&);				//this is not using
-	ATM& operator=(const ATM&);		//this is not using
+    map<int,int> _notesMap;
 
 public:
-	ATM();
-	~ATM();
-	 size_t getId() const { return _id; }
-	 CashDispencer& getDispenser() { return _dispenser; }
-	 CardScanner& getCardReader() { return _cardScanner; }
+    ATM();
+    ~ATM();
+    CashDispencer& getDispenser() { return _dispenser; }
+    CardScanner& getCardScanner() { return _cardScanner; }
+    map<string,Account> getAccountList(){return _accountList;}
 
+    void    readCard() { _cardScanner.readCard(); }
+    void pushOutCard() { _cardScanner.ejectCard(); }
+    void declineCard() { _cardScanner.retractCard(); }
 
-	//Dispenser's API
-	 bool isCorrectAmount(int amount) const {
-		return _dispenser.isCorrectAmount(amount);
-	}
-	
-	 map<Notes, int> outcash(int total)
-	{
-		//return _dispenser.outcash(total);
-	}
-	 map<Notes, int> incash(int _50 = 1000, int _100 = 1000, int _200 = 400,
-		int _500 = 500)
-	{
-		//return _dispenser.incash(_50, _100, _200, _500);
-	}
+    void printCheck();
+    void showMenu();
+    string getPin(string&);
+    void checkPin(string&);
 
-	
-	 void    readCard() { _cardScanner.readCard(); }
-	 void pushOutCard() { _cardScanner.ejectCard(); }
-	 void declineCard() { _cardScanner.retractCard(); }
-
-	 void printCheck();
-	 void showMenu();
-	 string getPin(string&);
-	 void checkPin(string&);
-
-	 
-
-	//Start session
-	void startSession();
-	//Close session
-	void closeSession();
+    //Start session
+    void startSession();
+    //Close session
+    void closeSession();
 };
-
-ostream& operator<<(ostream&, const ATM&);
-

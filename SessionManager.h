@@ -1,29 +1,25 @@
-
 #include <iostream>
 using namespace std;
-
-#include "AccountOld.h"
-
 class ATM;
 class SessionManager
 {
 private:
-	AccountOld& _account;
-	ATM& _atm;
-	SessionManager(const SessionManager&);
-	SessionManager& operator=(const SessionManager&);
+    Account& _account;
+    ATM& _atm;
+    SessionManager(const SessionManager&);
+    SessionManager& operator=(const SessionManager&);
 
 public:
-	SessionManager(AccountOld&, ATM&);
-	~SessionManager();
+    SessionManager(Account&, ATM&);
+    ~SessionManager();
 
 
-	void startSession();
-	void closeSession();
-	
-	void handleInvalidPin();
-	void handleFailedTransaction();
+    void startSession();
+    void closeSession();
 
-	
+//	void handleInvalidPin();
+    void handleFailedTransaction();
+
+
 };
 
