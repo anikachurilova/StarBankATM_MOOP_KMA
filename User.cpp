@@ -1,9 +1,22 @@
 #include "User.h"
 
-User::User(const size_t id, const string& firstName,
-     const string& lastName, list<Account> allAccounts):
-     _id(id),_firstName(firstName),_lastName(lastName),_allAccounts(allAccounts){
+
+User::User(const string& firstName,
+           const string& lastName) :
+        _firstName(firstName), _lastName(lastName){
 
 }
-User::User(const User& u):_id(u._id),_firstName(u._firstName),_lastName(u._lastName),_allAccounts(u._allAccounts)
 
+User::~User()
+{
+
+}
+
+void putMoneyInAnotherAccount();
+void withdrawMoneyFromAccount();
+
+ostream& operator<<(ostream& os, const User& a) {
+    os << "name: " << a.getFirstName() << endl;
+    os << "surname: " << a.getLastName() << endl;
+    return os;
+}

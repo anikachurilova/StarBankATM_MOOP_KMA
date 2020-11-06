@@ -1,40 +1,42 @@
 #include "CashDispencer.h"
+
 CashDispencer::CashDispencer(ATM& atm)
-        : _atm(atm)
-{
-
+        : _atm(atm) {
+    initialiseNotes();
 }
 
-CashDispencer::~CashDispencer()
-{
 
-}
+CashDispencer::~CashDispencer() {}
+
+
 bool CashDispencer::isCorrectAmount(int n) {
-    if(n%50==0 && n>=CashDispencer::_MIN_AMOUNT && n<=_totalCashAmount){
+    if (n % 50 == 0 && n >= CashDispencer::_MIN_AMOUNT && n <= _totalCashAmount) {
         return true;
-    }else{
+    }
+    else {
         return false;
     }
 
 }
 void CashDispencer::initialiseNotes() {
-    _notesMap[50]=100;
-    _notesMap[100]=100;
-    _notesMap[200]=100;
-    _notesMap[500]=100;
+    _notesMap[50] = 100;
+    _notesMap[100] = 100;
+    _notesMap[200] = 100;
+    _notesMap[500] = 100;
+    setTotalCashAmount();
 }
 
-void CashDispencer::setTotalCashAmount(){
+void CashDispencer::setTotalCashAmount() {
     int total = 0;
     total += _notesMap[50] * 50;
     total += _notesMap[100] * 100;
     total += _notesMap[200] * 200;
     total += _notesMap[500] * 500;
-    _totalCashAmount=total;
+    _totalCashAmount = total;
 }
 
-const map<int, int> CashDispencer::calculateNotesOut(const int m){
-    if(!isCorrectAmount(m)){
+const map<int, int> CashDispencer::calculateNotesOut(const int m) {
+    if (!isCorrectAmount(m)) {
         throw BadAmount(string("ATM hasn't enough money: "), m);
     }
 
@@ -65,7 +67,7 @@ const map<int, int> CashDispencer::calculateNotesOut(const int m){
         n -= 50;
     }
 
-    if (n != 0){
+    if (n != 0) {
         throw BadAmount(string("ATM hasn't required set of banknotes: "), amount);
     }
     map<int, int> cashOutMap;
@@ -77,34 +79,44 @@ const map<int, int> CashDispencer::calculateNotesOut(const int m){
     return cashOutMap;
 }
 
-void CashDispencer::updateNotesMap(map<int,int> m){
-    _notesMap[50]  = _notesMap[50]  - m[50];
-    _notesMap[100]  = _notesMap[100]  - m[100];
-    _notesMap[200]  = _notesMap[200]  - m[200];
-    _notesMap[500]  = _notesMap[500]  - m[500];
+void CashDispencer::updateNotesMap(map<int, int> m) {
+    _notesMap[50] = _notesMap[50] - m[50];
+    _notesMap[100] = _notesMap[100] - m[100];
+    _notesMap[200] = _notesMap[200] - m[200];
+    _notesMap[500] = _notesMap[500] - m[500];
 }
-const map<int, int> CashDispencer::getNotesOut(const int n){
+const map<int, int> CashDispencer::getNotesOut(const int n) {
     try
     {
-
         map<int, int> notesOutMap(calculateNotesOut(n));
         updateNotesMap(notesOutMap);
         setTotalCashAmount();
+        map<int, int>::iterator it;
+        for (it = notesOutMap.begin(); it != notesOutMap.end(); it++) {
+            if (it->second) {
+                cout << it->first  // key
+                     << " UAH:"
+                     << it->second   // value
+                     << std::endl;
+            }
+        }
         return notesOutMap;
     }
-    catch(const BadAmount& ba)
+    catch (const BadAmount& ba)
     {
 
-        if(getTotalCashAmount() < _MIN_AMOUNT) {
-            _blocked=true;
+        if (getTotalCashAmount() < _MIN_AMOUNT) {
+            _blocked = true;
         }
-        throw ba;
+        ba.diagnose();
 
     }
 
 }
 
 void CashDispencer::incashMoney(int n) {
+    if(n!=50 && n!=100 && n!=200 && n!=500)
+        throw string("Wrong banknote! ");
     _notesMap[n]++;
     setTotalCashAmount();
 }

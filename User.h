@@ -1,43 +1,35 @@
-#pragma once
 
 #include <string>
 #include <iostream>
-#include <list>
-#include "Account.h"
 using namespace std;
+#include <map>
 
 class User {
 
 private:
-	size_t _id;
-	string _firstName;
-	string _lastName;
-	list<Account> _allAccounts;
+    string _firstName;
+    string _lastName;
+//	map<string,Account> _allAccounts;
 public:
-	User();
-	User(const size_t, const string&,
-		const string&, list<Account>);
-	User(const User&);
-	~User();
-	Account& operator=(const Account&);
-	void setAccounts(list<Account>& _allAccounts);
-	void setFirstName(const string& firstName);
-	void setLastName(const string& lastName);
-	void setID(const string& lastName);//???
+    User(const string&, const string&);
+    ~User();
+//	void setAccounts(map<string, Account>& _allAccounts);
 
-	size_t getID() { return _id; };
-	string getFirstName() const { return _firstName; };
-	string getLastName() const { return _lastName; };
-    list<Account> getAllAccounts()const { return _allAccounts; };
+    string getFirstName() const { return _firstName; };
+    string getLastName() const { return _lastName; };
+//	map<string, Account> getAllAccounts()const { return _allAccounts; };
 
-	void seeAllTransactions();
-	void createTransaction();
-	void stopAutomatedTransaction();
-	void putMoneyInMyAccount();
-	void putMoneyInAnotherAccount();
-	void withdrawMoneyFromAccount();
-	void checkBalance();
-	void takeCredit();
-	void openDeposit();
-	void closeDeposit();
+    void seeAllTransactions();
+    void createTransaction();
+    void stopAutomatedTransaction();
+
+    void putMoneyInAnotherAccount();
+
+
+
+    void takeCredit();
+    void openDeposit();
+    void closeDeposit();
 };
+ostream& operator<<(ostream&, const User&);
+
