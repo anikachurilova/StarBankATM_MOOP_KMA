@@ -3,14 +3,14 @@
 #include <string>
 using namespace std;
 
-#include "Account.h"
+#include "AccountOld.h"
 
 class ATM;
 class CardScanner
 {
 private:
 	ATM& _atm;
-	Account* _account;
+	AccountOld* _account;
 	static const size_t NUMBER_TRIALS = 3;
 	size_t currNumOfTrials;
 	CardScanner(const CardScanner&);

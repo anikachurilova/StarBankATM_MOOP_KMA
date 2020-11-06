@@ -2,19 +2,19 @@
 #include <iostream>
 using namespace std;
 
-#include "Account.h"
+#include "AccountOld.h"
 
 class ATM;
 class SessionManager
 {
 private:
-	Account& _account;
+	AccountOld& _account;
 	ATM& _atm;
 	SessionManager(const SessionManager&);
 	SessionManager& operator=(const SessionManager&);
 
 public:
-	SessionManager(Account&, ATM&);
+	SessionManager(AccountOld&, ATM&);
 	~SessionManager();
 
 
