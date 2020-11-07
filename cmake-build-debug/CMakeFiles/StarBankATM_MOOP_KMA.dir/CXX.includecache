@@ -8,7 +8,7 @@
 
 /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/ATM.h
 
-/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/main.cpp
+/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/Main.cpp
 iostream
 -
 time.h
@@ -21,7 +21,7 @@ models/accounts/CreditAccount.h
 /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/CreditAccount.h
 models/accounts/DepositAccount.h
 /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/DepositAccount.h
-stdio.h
+cstdio
 -
 sqlite3.h
 -

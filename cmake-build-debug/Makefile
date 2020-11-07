@@ -224,6 +224,33 @@ CashDispencer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StarBankATM_MOOP_KMA.dir/build.make CMakeFiles/StarBankATM_MOOP_KMA.dir/CashDispencer.cpp.s
 .PHONY : CashDispencer.cpp.s
 
+Main.o: Main.cpp.o
+
+.PHONY : Main.o
+
+# target to build an object file
+Main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StarBankATM_MOOP_KMA.dir/build.make CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o
+.PHONY : Main.cpp.o
+
+Main.i: Main.cpp.i
+
+.PHONY : Main.i
+
+# target to preprocess a source file
+Main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StarBankATM_MOOP_KMA.dir/build.make CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.i
+.PHONY : Main.cpp.i
+
+Main.s: Main.cpp.s
+
+.PHONY : Main.s
+
+# target to generate assembly for a file
+Main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StarBankATM_MOOP_KMA.dir/build.make CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.s
+.PHONY : Main.cpp.s
+
 SessionManager.o: SessionManager.cpp.o
 
 .PHONY : SessionManager.o
@@ -277,33 +304,6 @@ Storage.s: Storage.cpp.s
 Storage.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StarBankATM_MOOP_KMA.dir/build.make CMakeFiles/StarBankATM_MOOP_KMA.dir/Storage.cpp.s
 .PHONY : Storage.cpp.s
-
-main.o: main.cpp.o
-
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StarBankATM_MOOP_KMA.dir/build.make CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StarBankATM_MOOP_KMA.dir/build.make CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StarBankATM_MOOP_KMA.dir/build.make CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.s
-.PHONY : main.cpp.s
 
 models/Transaction.o: models/Transaction.cpp.o
 
@@ -539,15 +539,15 @@ help:
 	@echo "... CashDispencer.o"
 	@echo "... CashDispencer.i"
 	@echo "... CashDispencer.s"
+	@echo "... Main.o"
+	@echo "... Main.i"
+	@echo "... Main.s"
 	@echo "... SessionManager.o"
 	@echo "... SessionManager.i"
 	@echo "... SessionManager.s"
 	@echo "... Storage.o"
 	@echo "... Storage.i"
 	@echo "... Storage.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 	@echo "... models/Transaction.o"
 	@echo "... models/Transaction.i"
 	@echo "... models/Transaction.s"

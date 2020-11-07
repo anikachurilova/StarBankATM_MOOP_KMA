@@ -77,18 +77,18 @@ include CMakeFiles/StarBankATM_MOOP_KMA.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/StarBankATM_MOOP_KMA.dir/flags.make
 
-CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.o: CMakeFiles/StarBankATM_MOOP_KMA.dir/flags.make
-CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.o -c /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/main.cpp
+CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o: CMakeFiles/StarBankATM_MOOP_KMA.dir/flags.make
+CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o: ../Main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o -c /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/Main.cpp
 
-CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/main.cpp > CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.i
+CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/Main.cpp > CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.i
 
-CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/main.cpp -o CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.s
+CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/Main.cpp -o CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.s
 
 CMakeFiles/StarBankATM_MOOP_KMA.dir/models/Transaction.cpp.o: CMakeFiles/StarBankATM_MOOP_KMA.dir/flags.make
 CMakeFiles/StarBankATM_MOOP_KMA.dir/models/Transaction.cpp.o: ../models/Transaction.cpp
@@ -261,7 +261,7 @@ CMakeFiles/StarBankATM_MOOP_KMA.dir/models/UserOld.cpp.s: cmake_force
 
 # Object files for target StarBankATM_MOOP_KMA
 StarBankATM_MOOP_KMA_OBJECTS = \
-"CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.o" \
+"CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o" \
 "CMakeFiles/StarBankATM_MOOP_KMA.dir/models/Transaction.cpp.o" \
 "CMakeFiles/StarBankATM_MOOP_KMA.dir/models/accounts/Account.cpp.o" \
 "CMakeFiles/StarBankATM_MOOP_KMA.dir/Storage.cpp.o" \
@@ -279,7 +279,7 @@ StarBankATM_MOOP_KMA_OBJECTS = \
 # External object files for target StarBankATM_MOOP_KMA
 StarBankATM_MOOP_KMA_EXTERNAL_OBJECTS =
 
-StarBankATM_MOOP_KMA: CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.o
+StarBankATM_MOOP_KMA: CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o
 StarBankATM_MOOP_KMA: CMakeFiles/StarBankATM_MOOP_KMA.dir/models/Transaction.cpp.o
 StarBankATM_MOOP_KMA: CMakeFiles/StarBankATM_MOOP_KMA.dir/models/accounts/Account.cpp.o
 StarBankATM_MOOP_KMA: CMakeFiles/StarBankATM_MOOP_KMA.dir/Storage.cpp.o

@@ -8,17 +8,17 @@ CMakeFiles/StarBankATM_MOOP_KMA.dir/CardScanner.cpp.o: ../CardScanner.cpp
 CMakeFiles/StarBankATM_MOOP_KMA.dir/CashDispencer.cpp.o: ../CashDispencer.cpp
 CMakeFiles/StarBankATM_MOOP_KMA.dir/CashDispencer.cpp.o: ../CashDispencer.h
 
+CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o: ../ATM.h
+CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o: ../Main.cpp
+CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o: ../models/Transaction.h
+CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o: ../models/User.h
+CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o: ../models/accounts/Account.h
+CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o: ../models/accounts/CreditAccount.h
+CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o: ../models/accounts/DepositAccount.h
+
 CMakeFiles/StarBankATM_MOOP_KMA.dir/SessionManager.cpp.o: ../SessionManager.cpp
 
 CMakeFiles/StarBankATM_MOOP_KMA.dir/Storage.cpp.o: ../Storage.cpp
-
-CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.o: ../ATM.h
-CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.o: ../main.cpp
-CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.o: ../models/Transaction.h
-CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.o: ../models/User.h
-CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.o: ../models/accounts/Account.h
-CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.o: ../models/accounts/CreditAccount.h
-CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.o: ../models/accounts/DepositAccount.h
 
 CMakeFiles/StarBankATM_MOOP_KMA.dir/models/Transaction.cpp.o: ../models/Transaction.cpp
 CMakeFiles/StarBankATM_MOOP_KMA.dir/models/Transaction.cpp.o: ../models/Transaction.h
