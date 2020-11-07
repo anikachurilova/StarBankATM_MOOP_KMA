@@ -42,7 +42,7 @@ public:
     const size_t& limit() const;
     const bool isBlocked() const;
 
-    virtual void putMoney() = 0;
+    virtual void putMoney(size_t amount) = 0;
     //void blockCard(); // sho delaem tyt?
 };
 ostream& operator<<(ostream&, const Account&);
