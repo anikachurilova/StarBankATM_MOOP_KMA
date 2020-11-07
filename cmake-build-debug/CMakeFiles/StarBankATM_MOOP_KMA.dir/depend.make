@@ -9,6 +9,7 @@ CMakeFiles/StarBankATM_MOOP_KMA.dir/CashDispencer.cpp.o: ../CashDispencer.cpp
 CMakeFiles/StarBankATM_MOOP_KMA.dir/CashDispencer.cpp.o: ../CashDispencer.h
 
 CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o: ../ATM.h
+CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o: ../DBService/UserService.h
 CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o: ../Main.cpp
 CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o: ../models/Transaction.h
 CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o: ../models/User.h

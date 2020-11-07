@@ -5,18 +5,14 @@
 #include "models/Transaction.h"
 #include "models/accounts/CreditAccount.h"
 #include "models/accounts/DepositAccount.h"
+#include "DBService/UserService.h"
 #include <cstdio>
 #include <sqlite3.h>
+#include <stdlib.h>
+
 
 using namespace std;
-static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
-    int i;
-    for(i = 0; i<argc; i++) {
-        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-    }
-    printf("\n");
-    return 0;
-}
+
 int main(int argc, char **argv)
 {
 //    User u1("A","B");
@@ -165,39 +161,85 @@ int main(int argc, char **argv)
 //    cout << "2: " <<acc.expiryDate() << endl;
 //cout << "charge: " << acc.chargePercentageOfCost();
 
-    sqlite3 *db;
-    char *zErrMsg = 0;
-    int rc;
-    char *sql;
+//    sqlite3 *db;
+//    char *zErrMsg = 0;
+//    int rc;
+//    char *sql;
+//    const char* data = "Callback function called";
+//
+//    /* Open database */
+//    rc = sqlite3_open("ATM.db", &db);
+//
+//    if( rc ) {
+//        fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+//        return(0);
+//    } else {
+//        fprintf(stdout, "Opened database successfully\n");
+//    }
 
-    /* Open database */
-    rc = sqlite3_open("ATM.db", &db);
 
-    if( rc ) {
-        fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
-        return(0);
-    } else {
-        fprintf(stdout, "Opened database successfully\n");
-    }
-
-    /* Create SQL statement */
-//    sql = "CREATE TABLE COMPANY("  \
-//      "ID INT PRIMARY KEY     NOT NULL," \
-//      "NAME           TEXT    NOT NULL," \
-//      "AGE            INT     NOT NULL," \
-//      "ADDRESS        CHAR(50)," \
-//      "SALARY         REAL );";
-
-    /* Execute SQL statement */
+//    sql = "INSERT INTO USER (id_user,first_name,last_name,middle_name) "  \
+//         "VALUES (1, 'Paul', 'Green', 'Jason'); " ;
+//
+//
+//
+//    /* Execute SQL statement */
 //    rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
 //
 //    if( rc != SQLITE_OK ){
 //        fprintf(stderr, "SQL error: %s\n", zErrMsg);
 //        sqlite3_free(zErrMsg);
 //    } else {
-//        fprintf(stdout, "Table created successfully\n");
+//        fprintf(stdout, "Records created successfully\n");
 //    }
-    sqlite3_close(db);
+
+
+
+
+//    sql = "SELECT * from USER";
+//
+//    /* Execute SQL statement */
+//    rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
+//
+//    if( rc != SQLITE_OK ) {
+//        fprintf(stderr, "SQL error: %s\n", zErrMsg);
+//        sqlite3_free(zErrMsg);
+//    } else {
+//        fprintf(stdout, "Operation done successfully\n");
+//    }
+
+
+//    sql = "UPDATE USER set last_name = 'White' where id_user=1; " \
+//         "SELECT * from USER";
+//
+//    /* Execute SQL statement */
+//    rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
+//
+//    if( rc != SQLITE_OK ) {
+//        fprintf(stderr, "SQL error: %s\n", zErrMsg);
+//        sqlite3_free(zErrMsg);
+//    } else {
+//        fprintf(stdout, "Operation done successfully\n");
+//    }
+
+
+
+//    sql = "DELETE from USER where id_user=1; " \
+//         "SELECT * from USER";
+//
+//    /* Execute SQL statement */
+//    rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
+//
+//    if( rc != SQLITE_OK ) {
+//        fprintf(stderr, "SQL error: %s\n", zErrMsg);
+//        sqlite3_free(zErrMsg);
+//    } else {
+//        fprintf(stdout, "Operation done successfully\n");
+//    }
+
+    createUser(4,"Kim", "Kard","Frank");
+
+   // sqlite3_close(db);
         return 0;
 
 

@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="SQLite - ATM.sqlite" uuid="9ba2a3af-bd68-42f4-bc9e-19364ef5b864">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:ATM.sqlite</jdbc-url>
-    </data-source>
     <data-source source="LOCAL" name="ATM" uuid="798958a8-e8cb-43e2-80ca-3a0dcb7af06d">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
