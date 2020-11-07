@@ -19,9 +19,7 @@ public:
 
     Transaction(size_t transactionSum, size_t cardSourceNumber, size_t cardDestinationNumber, char* transactionDateTime, size_t transactionId = 0);
     ~Transaction();
-
-    //maybe copy-constructor if we want to repeat one transaction??
-    //Transaction(Transaction&);
+    Transaction(const Transaction&);
 
     size_t& transactionId();
     size_t& transactionSum();
