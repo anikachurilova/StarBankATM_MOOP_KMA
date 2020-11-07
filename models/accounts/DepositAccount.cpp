@@ -5,15 +5,15 @@
 DepositAccount::DepositAccount(size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance,
                                size_t limit, string expiryDate, bool isBlocked,size_t depositTerm, size_t depositPercentage,
                                 string depositExpiryDate): Account(userId,cardNumber,pin,cvv,sumOnBalance,limit,expiryDate,isBlocked){
-    depositTerm = _depositTerm;
-    depositPercentage = _depositPercentage;
+    _depositTerm =  depositTerm;
+    _depositPercentage = depositPercentage;
      if(depositExpiryDate == ""){
          time_t now = time(0);
          now+=depositTerm;
          char* dt = ctime(&now);
          depositExpiryDate = dt;
      } else{
-         depositExpiryDate = _depositExpiryDate;
+         _depositExpiryDate = depositExpiryDate;
      }
 }
 
@@ -52,14 +52,16 @@ double DepositAccount::chargePercentageOfCost(){
 void DepositAccount::close(){ //+ транзекшн с этого на юниверсал !!!!!!!!!!!!!!!!!!! транзекшн(самон беленс + процент)
     _depositTerm = 0;
     _depositPercentage = 0;
-    _depositExpiryDate = nullptr;
+    _depositExpiryDate = "";
 }
 
 void DepositAccount::openNew(size_t depositTerm, size_t depositPercentage) {
     depositTerm = _depositTerm;
     depositPercentage = _depositPercentage;
+
     time_t now = time(0);
-    char* dt = ctime(&now);
-    _depositExpiryDate = dt + depositTerm;
+    now += depositTerm;
+    string dt = ctime(&now);
+    _depositExpiryDate = dt;
 }
 
