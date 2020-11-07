@@ -94,6 +94,13 @@ int main()
     // convert now to string form
     char* dt1 = ctime(&now1);
 
+
+    time_t now2 = time(0);
+    now2 += 10000;
+
+    // convert now to string form
+    char* dt2 = ctime(&now2);
+
 //    *t1.transactionDateTime() = (*dt1);
 //    cout << &dt1 << endl;
 //
@@ -101,23 +108,68 @@ int main()
 //
 
 
-    CreditAccount ca1(9000000, 2000, 1, 1111, 000,123, 0, 500, false,dt1, nullptr);
 
 
 //    cout << ca1.creditExpiryDate() << endl;
 //    cout << ca1.expiryDate() << endl;
 
-    cout << ca1.creditExpiryDate() << endl;
-    cout << ca1.expiryDate() << endl;
+
+
+
+    time_t result1 = time(&result1);
+//    cout << result1 << endl;
+//    cout << localtime(&result1) << endl;
+//
+//    time_t result2 = time(&result2);
+//    result2+=99999;
+//    cout << result2 << endl;
+//    cout << asctime(std::localtime(&result2)) << endl;
+
+
+
+//    char* tt1= asctime(std::localtime(&result1));
+//    char* tt2 = asctime(std::localtime(&result2));
+
+    struct tm  tm;
+    time_t rawtime;
+    time ( &rawtime );
+    tm = *localtime ( &rawtime );
+    mktime(&tm);
+
+
+    time_t my_time1 = time(NULL);
+    my_time1 += 2134563;
+    time_t my_time2 = time(NULL);
+
+    string a = ctime(&my_time2);
+
+//    auto timenow1 =
+//            chrono::system_clock::to_time_t(chrono::system_clock::now());
+//
+//    timenow1 +-
+//    auto timenow2 =
+//            chrono::system_clock::to_time_t(chrono::system_clock::now());
+//
+//
+
+    // ctime() used to give the present time
+
+
+    CreditAccount ca1(9000000, 2000, 1, 1111, 000,123, 0, 500, false, ctime(&my_time1),a);
+
+    cout << "1: " <<ca1.creditExpiryDate() << endl;
+    cout << "2: " <<ca1.expiryDate() << endl;
 
     ca1.close();
 
     cout << ca1.expiryDate() << endl;
-    cout << (ca1.creditExpiryDate() == nullptr ? "*" : ca1.creditExpiryDate()) << endl;
+//    cout << (ca1.creditExpiryDate() == nullptr ? "*" : ca1.creditExpiryDate()) << endl;
 
     ca1.openNew(2222,1111);
 
     cout << ca1.expiryDate() << endl;
     cout << ca1.creditExpiryDate() << endl;
+
+
 }
 

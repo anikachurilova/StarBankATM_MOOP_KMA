@@ -3,10 +3,10 @@
 
 CreditAccount::CreditAccount(size_t creditTerm, double creditDept, size_t userId, size_t cardNumber, size_t pin,
                              size_t cvv, double sumOnBalance, size_t limit, bool isBlocked, char *expiryDate,
-                             char *creditExpiryDate) : Account(userId,cardNumber,pin,cvv,sumOnBalance,limit,expiryDate,isBlocked),
+                             string creditExpiryDate) : Account(userId,cardNumber,pin,cvv,sumOnBalance,limit,expiryDate,isBlocked),
                              _creditDept(creditDept), _creditTerm(creditTerm)
                              {
-    if(creditExpiryDate == nullptr){
+    if(creditExpiryDate == ""){
         _sumOnBalance = creditDept;
         time_t now = time(0);
         now += creditTerm;
@@ -27,7 +27,7 @@ double& CreditAccount::creditDept(){
     return _creditDept;
 }
 
-char* CreditAccount::creditExpiryDate(){
+string& CreditAccount::creditExpiryDate(){
     return _creditExpiryDate;
 }
 
@@ -39,7 +39,7 @@ const double& CreditAccount::creditDept() const{
     return _creditDept;
 }
 
-const char* CreditAccount::creditExpiryDate() const{
+const string& CreditAccount::creditExpiryDate() const{
     return _creditExpiryDate;
 }
 
@@ -54,7 +54,7 @@ void CreditAccount::withdrawMoney(size_t amount) {
 void CreditAccount::close() {
     _creditTerm = 0;
     _creditDept = 0;
-    _creditExpiryDate = nullptr;
+    _creditExpiryDate = "";
 }
 
 void CreditAccount::openNew(size_t creditTerm, double creditDept) {

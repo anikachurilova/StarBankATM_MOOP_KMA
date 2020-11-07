@@ -5,18 +5,18 @@ class CreditAccount : public Account{
 private:
     size_t _creditTerm;
     double _creditDept;
-    char* _creditExpiryDate;
+    string _creditExpiryDate;
 public:
-    CreditAccount(size_t creditTerm, double creditDept, size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance, size_t limit, bool isBlocked, char* expiryDate, char* creditExpiryDate = nullptr);
+    CreditAccount(size_t creditTerm, double creditDept, size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance, size_t limit, bool isBlocked, char* expiryDate, string creditExpiryDate = nullptr);
     ~CreditAccount();
 
     size_t& creditTerm();
     double& creditDept();
-    char* creditExpiryDate();
+    string& creditExpiryDate();
 
     const size_t& creditTerm() const;
     const double& creditDept() const;
-    const char* creditExpiryDate() const;
+    const string& creditExpiryDate() const;
 
     void putMoney(double amount) override;
     void close();
