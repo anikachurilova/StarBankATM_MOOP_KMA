@@ -38,5 +38,5 @@ const string& User::middleName() const{
 }
 
 ostream& operator<<(ostream& os, const User& user){
-    os << "ID: " << user.id() << " " << user.firstName() << " " << user.lastName() << " " << user.midlleName() << endl;
+    os << "ID: " << user.id() << " " << user.firstName() << " " << user.lastName() << " " << user.middleName() << endl;
 }
