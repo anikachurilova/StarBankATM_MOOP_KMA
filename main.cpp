@@ -1,8 +1,10 @@
 
 #include <iostream>
+#include <time.h>
 #include "ATM.h"
 #include "models/Transaction.h"
 #include "models/accounts/CreditAccount.h"
+#include "models/accounts/DepositAccount.h"
 
 using namespace std;
 
@@ -128,6 +130,24 @@ int main()
 //    ca1.withdrawMoney(1000);
 //    cout << ca1.creditDept() << endl;
 //    cout << ca1.sumOnBalance() << endl;
+
+    time_t my_time1 = time(NULL);
+    my_time1 += 2134563;
+    time_t my_time2 = time(NULL);
+
+    string a = ctime(&my_time2);
+    string b = ctime(&my_time1);
+
+    DepositAccount acc(111, 222, 222, 222, 3000,500, a,false,200000000,2,b);
+    cout << (acc.depositExpiryDate() == "" ? "*" : acc.depositExpiryDate()) << endl;
+    cout << "1: " <<acc.depositExpiryDate() << endl;
+    cout << "2: " <<acc.expiryDate() << endl;
+
+    acc.close();
+    acc.openNew(2000000,2);
+    cout << (acc.depositExpiryDate() == "" ? "*" : acc.depositExpiryDate()) << endl;
+    cout << "1: " <<acc.depositExpiryDate() << endl;
+    cout << "2: " <<acc.expiryDate() << endl;
 
 }
 
