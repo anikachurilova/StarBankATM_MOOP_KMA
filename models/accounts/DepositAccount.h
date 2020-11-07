@@ -24,7 +24,7 @@ public:
     const char* depositExpiryDate() const;
     const size_t& depositPercentage() const;
 
-    void putMoney(double amount);
+    void putMoney(double amount) override;
     double chargePercentageOfCost();
     void close();// + транзекшн с этого на юниверсал!!!!!!!!!!!
     void openNew(size_t depositTerm, size_t depositPercentage);
