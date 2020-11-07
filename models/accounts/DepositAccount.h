@@ -11,7 +11,7 @@ private:
     char* _depositExpiryDate;//now+term в конструкторе
     size_t _depositPercentage;
 public:
-    DepositAccount(size_t depositTerm, char* _depositExpiryDate, size_t _depositPercentage);
+    DepositAccount(size_t depositTerm, size_t _depositPercentage, char* _depositExpiryDate = nullptr);
     ~DepositAccount();
 
     size_t& depositTerm();
