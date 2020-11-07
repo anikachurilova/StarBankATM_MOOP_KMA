@@ -27,19 +27,6 @@ public:
     const string& firstName() const;
     const string& lastName() const;
     const string& middleName() const;
-
-
-    void seeAllTransactions();
-    void createTransaction();
-    void stopAutomatedTransaction();
-
-    void putMoneyInAnotherAccount();
-
-
-
-    void takeCredit();
-    void openDeposit();
-    void closeDeposit();
 };
 ostream& operator<<(ostream&, const User&);
 
