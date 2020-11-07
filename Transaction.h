@@ -17,7 +17,8 @@ private:
     char* _transactionDateTime;
 public:
 
-    Transaction(size_t transactionSum, size_t cardSourceNumber, size_t cardDestinationNumber);
+    Transaction(size_t transactionSum, size_t cardSourceNumber, size_t cardDestinationNumber, char* transactionDateTime, size_t transactionId = 0);
+    ~Transaction();
 
     //maybe copy-constructor if we want to repeat one transaction??
     //Transaction(Transaction&);
@@ -26,14 +27,14 @@ public:
     size_t& transactionSum();
     size_t& cardSourceNumber();
     size_t& cardDestinationNumber();
-    char& transactionDateTime();
+    char* transactionDateTime();
 
 
    const size_t& transactionId() const;
    const size_t& transactionSum() const;
    const size_t& cardSourceNumber() const;
    const size_t& cardDestinationNumber() const;
-   const char& transactionDateTime() const;
+   const char* transactionDateTime() const;
 
    void makeTransaction();
 };
