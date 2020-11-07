@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <time.h>
 #include "ATM.h"
 #include "Transaction.h"
 
@@ -89,8 +90,9 @@ int main()
 
     // convert now to string form
     char* dt1 = ctime(&now1);
-
-   // t1.transactionDateTime() = dt1;
+    //dt1 = t1.transactionDateTime();
+    char* ttt = t1.transactionDateTime();
+    ttt = dt1;
 
 }
 

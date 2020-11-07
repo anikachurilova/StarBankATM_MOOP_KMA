@@ -14,6 +14,15 @@ Transaction::Transaction(size_t transactionSum, size_t cardSourceNumber, size_t 
 Transaction::~Transaction() {
     return;
 }
+Transaction::Transaction(const Transaction& t): _transactionId(t._transactionId),
+_transactionDateTime(t._transactionDateTime), _transactionSum(t._transactionSum),
+_cardSourceNumber(t._cardSourceNumber), _cardDestinationNumber(t._cardDestinationNumber){
+    this->_transactionSum = t._transactionSum;
+    this->_cardSourceNumber = t._cardSourceNumber;
+    this->_cardDestinationNumber = t._cardDestinationNumber;
+    this->_transactionId = t._transactionId;
+    this->_transactionDateTime = t._transactionDateTime;
+}
 
 size_t& Transaction::transactionId() {
     return _transactionId;
