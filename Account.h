@@ -14,33 +14,36 @@ private:
     size_t _cvvNumber;
     size_t _sumOnBalance;
     size_t _limit;
+    bool _isBocked;
 
 public:
     class BadAmount;
     // class BadAccount;
     class BadPIN;
 
-    Account(size_t userId, size_t cardNumber, size_t pin, size_t cvv, size_t sumOnBalance, size_t limit);
+    Account(size_t userId, size_t cardNumber, size_t pin, size_t cvv, size_t sumOnBalance, size_t limit, char* expiryDate, bool isBlocked);
     ~Account();
 
     size_t& userId();
     size_t& cardNumber();
     size_t& pin();
-    char& expiryDate();//????
+    char * expiryDate();//????
     size_t& cvvNumber();
     size_t& sumOnBalance();
     size_t& limit();
+    bool isBlocked();
 
     const size_t& userId() const;
     const size_t& cardNumber() const;
     const size_t& pin() const;
-    const char& expiryDate() const;//????
+    const char* expiryDate() const;//????
     const size_t& cvvNumber() const;
     const size_t& sumOnBalance() const;
     const size_t& limit() const;
+    const bool isBlocked() const;
 
     virtual void putMoney() = 0;
-    void blockCard(); // sho delaem tyt?
+    //void blockCard(); // sho delaem tyt?
 };
 ostream& operator<<(ostream&, const Account&);
 
