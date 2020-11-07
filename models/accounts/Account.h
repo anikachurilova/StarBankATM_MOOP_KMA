@@ -10,7 +10,7 @@ private:
     size_t _userId; //&||*????
     size_t _cardNumber;
     size_t _pin;
-    char* _expiryDate; // maybe just date without time? find how to compare DateTime with Date
+    string _expiryDate; // maybe just date without time? find how to compare DateTime with Date
     size_t _cvvNumber;
     size_t _limit;
     bool _isBocked;
@@ -21,13 +21,13 @@ public:
     // class BadAccount;
     class BadPIN;
 
-    Account(size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance, size_t limit, char* expiryDate, bool isBlocked);
+    Account(size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance, size_t limit, string expiryDate, bool isBlocked);
     ~Account();
 
     size_t& userId();
     size_t& cardNumber();
     size_t& pin();
-    char * expiryDate();//????
+    string& expiryDate();//????
     size_t& cvvNumber();
     double& sumOnBalance();
     size_t& limit();
@@ -36,7 +36,7 @@ public:
     const size_t& userId() const;
     const size_t& cardNumber() const;
     const size_t& pin() const;
-    const char* expiryDate() const;//????
+    const string& expiryDate() const;//????
     const size_t& cvvNumber() const;
     const double& sumOnBalance() const;
     const size_t& limit() const;

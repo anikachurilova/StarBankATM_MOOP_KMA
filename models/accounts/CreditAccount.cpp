@@ -2,7 +2,7 @@
 #include "CreditAccount.h"
 
 CreditAccount::CreditAccount(size_t creditTerm, double creditDept, size_t userId, size_t cardNumber, size_t pin,
-                             size_t cvv, double sumOnBalance, size_t limit, bool isBlocked, char *expiryDate,
+                             size_t cvv, double sumOnBalance, size_t limit, bool isBlocked, string expiryDate,
                              string creditExpiryDate) : Account(userId,cardNumber,pin,cvv,sumOnBalance,limit,expiryDate,isBlocked),
                              _creditDept(creditDept), _creditTerm(creditTerm)
                              {

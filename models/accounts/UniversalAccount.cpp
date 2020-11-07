@@ -4,7 +4,7 @@
 
 
 UniversalAccount::UniversalAccount(size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance,
-        size_t limit,char* expiryDate,  bool isBlocked):Account(userId,cardNumber,pin,cvv,sumOnBalance,limit,expiryDate,isBlocked){
+        size_t limit,string expiryDate,  bool isBlocked):Account(userId,cardNumber,pin,cvv,sumOnBalance,limit,expiryDate,isBlocked){
 
 }
 

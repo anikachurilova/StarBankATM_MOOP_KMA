@@ -1,7 +1,7 @@
 #include "Account.h"
 
 Account::Account(size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance, size_t limit,
-                 char *expiryDate, bool isBlocked):_userId(userId), _cardNumber(cardNumber), _pin(pin),
+                 string expiryDate, bool isBlocked):_userId(userId), _cardNumber(cardNumber), _pin(pin),
                  _cvvNumber(cvv), _sumOnBalance(sumOnBalance), _limit(limit), _expiryDate(expiryDate), _isBocked(isBlocked){}
 
 Account::~Account() {}
@@ -16,7 +16,7 @@ size_t&  Account::pin(){
     return _pin;
 }
 
-char * Account::expiryDate(){
+string& Account::expiryDate(){
     return _expiryDate;
 }
 
@@ -44,7 +44,7 @@ const size_t&  Account::pin() const{
     return _pin;
 }
 
-const char * Account::expiryDate() const{
+const string& Account::expiryDate() const{
     return _expiryDate;
 }
 
