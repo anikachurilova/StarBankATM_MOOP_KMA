@@ -162,7 +162,7 @@ int main(int argc, char **argv)
     char *zErrMsg = 0;
     int rc;
 
-    rc = sqlite3_open("ATM.sqlite", &db);
+    rc = sqlite3_open("ATM.sqlite", &db);   
 
     if( rc ) {
         fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
