@@ -9,8 +9,9 @@ class CreditAccount : public Account{
 private:
     size_t _creditTerm;
     size_t _creditDept;
+    char* _creditExpiryDate;
 public:
-    CreditAccount(size_t creditTerm, size_t creditDept);
+    CreditAccount(size_t creditTerm, size_t creditDept, size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance, size_t limit, bool isBlocked, char* expiryDate, char* creditExpiryDate = nullptr);
     ~CreditAccount();
 
     size_t& creditTerm();
@@ -21,7 +22,7 @@ public:
 
     void putMoney(size_t amount);
     void close();
-    void withdrawMoney(size_t amount);
+    void withdrawMoney(double amount);
 };
 
 #endif //STARBANKATM_MOOP_KMA_CREDITACCOUNT_H

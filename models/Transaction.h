@@ -11,25 +11,25 @@ using namespace std;
 class Transaction {
 private:
     size_t _transactionId;
-    size_t _transactionSum;
+    double _transactionSum;
     size_t _cardSourceNumber;
     size_t _cardDestinationNumber;
     char* _transactionDateTime;
 public:
 
-    Transaction(size_t transactionSum, size_t cardSourceNumber, size_t cardDestinationNumber, char* transactionDateTime, size_t transactionId = 0);
+    Transaction(double transactionSum, size_t cardSourceNumber, size_t cardDestinationNumber, char* transactionDateTime, size_t transactionId = 0);
     ~Transaction();
     Transaction(const Transaction&);
 
     size_t& transactionId();
-    size_t& transactionSum();
+    double& transactionSum();
     size_t& cardSourceNumber();
     size_t& cardDestinationNumber();
     char* transactionDateTime();
 
 
    const size_t& transactionId() const;
-   const size_t& transactionSum() const;
+   const double& transactionSum() const;
    const size_t& cardSourceNumber() const;
    const size_t& cardDestinationNumber() const;
    const char* transactionDateTime() const;

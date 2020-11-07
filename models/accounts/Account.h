@@ -12,7 +12,7 @@ private:
     size_t _pin;
     char* _expiryDate; // maybe just date without time? find how to compare DateTime with Date
     size_t _cvvNumber;
-    size_t _sumOnBalance;
+    double _sumOnBalance;
     size_t _limit;
     bool _isBocked;
 
@@ -21,7 +21,7 @@ public:
     // class BadAccount;
     class BadPIN;
 
-    Account(size_t userId, size_t cardNumber, size_t pin, size_t cvv, size_t sumOnBalance, size_t limit, char* expiryDate, bool isBlocked);
+    Account(size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance, size_t limit, char* expiryDate, bool isBlocked);
     ~Account();
 
     size_t& userId();
@@ -29,7 +29,7 @@ public:
     size_t& pin();
     char * expiryDate();//????
     size_t& cvvNumber();
-    size_t& sumOnBalance();
+    double& sumOnBalance();
     size_t& limit();
     bool isBlocked();
 
@@ -38,11 +38,11 @@ public:
     const size_t& pin() const;
     const char* expiryDate() const;//????
     const size_t& cvvNumber() const;
-    const size_t& sumOnBalance() const;
+    const double& sumOnBalance() const;
     const size_t& limit() const;
     const bool isBlocked() const;
 
-    virtual void putMoney(size_t amount) = 0;
+    virtual void putMoney(double amount) = 0;
     //void blockCard(); // sho delaem tyt?
 };
 ostream& operator<<(ostream&, const Account&);
