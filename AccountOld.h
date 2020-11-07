@@ -1,88 +1,40 @@
-//
-// Created by Valerie Luniakina on 06.11.2020.
-//
+#pragma once
 #include <string>
 #include <iostream>
 #include "User.h"
 
 using namespace std;
-#ifndef STARBANKATM_MOOP_KMA_ACCOUNT_H
-#define STARBANKATM_MOOP_KMA_ACCOUNT_H
-class Account{
+class AccountOld
+{
 private:
-    size_t _userId; //&||*????
-    size_t _cardNumber;
-    size_t _pin;
-    char* _expiryDate; // maybe just date without time? find how to compare DateTime with Date
-    size_t _cvvNumber;
-    size_t _sumOnBalance;
-    size_t _limit;
+    User _owner;
+    string _cardnumber;
+    string _PIN;
+    bool _blocked;
+    int _limit;
+    int _balance;
 
 public:
-    class BadAmount;
-    // class BadAccount;
-    class BadPIN;
 
-    Account(size_t userId, size_t cardNumber, size_t pin, size_t cvv, size_t sumOnBalance, size_t limit);
+    Account(const User&, const string&, const string&, const bool, const int, const int);
     ~Account();
 
+    void increase(const int);
+    void decrease(const int);
 
-    size_t& userId();
-    size_t& cardNumber();
-    size_t& pin();
-    char& expiryDate();//????
-    size_t& cvvNumber();
-    size_t& sumOnBalance();
-    size_t& limit();
+    const User getUser() const {
+        return _owner;
+    }
 
-    const size_t& userId() const;
-    const size_t& cardNumber() const;
-    const size_t& pin() const;
-    const char& expiryDate() const;//????
-    const size_t& cvvNumber() const;
-    const size_t& sumOnBalance() const;
-    const size_t& limit() const;
-
-    virtual void putMoney();
-    void blockCard();
+    int getLimit()const { return _limit; }
+    int getBalance()const { return _balance; }
+    void setLimit(const int);
+    string getCardNumber() const { return _cardnumber; }
+    string getPin() const { return _PIN; }
+    bool isBlocked() const { return _blocked; }
 };
+
 ostream& operator<<(ostream&, const Account&);
 
-class Account::BadAmount
-{
-private:
-    const string _reason;
-    const int _number;
 
-public:
-    BadAmount(string reason, const int num)
-            :_reason(reason), _number(num)
-    {
-        return;
-    }
 
-    ~BadAmount() { }
-
-    void diagnose() const{
-        cerr << _reason << endl;
-        cerr << ' ' << _number << endl;
-    }
-};
-
-class Account::BadPIN
-{
-private:
-    const string _reason;
-
-public:
-    BadPIN(string& reason)
-            :_reason(reason)
-    {
-        return;
-    }
-
-    ~BadPIN() { }
-
-    inline const string& reason() const { return _reason; }
-};
-#endif //STARBANKATM_MOOP_KMA_ACCOUNT_H
