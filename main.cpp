@@ -239,6 +239,8 @@ int main(int argc, char **argv)
 
     createUser(4,"Kim", "Kard","Frank");
 
+    selectUserById(4);
+    getAllUsers();
    // sqlite3_close(db);
         return 0;
 

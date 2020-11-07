@@ -111,4 +111,92 @@ void createUser(size_t iduser, string firstname, string lastname, string middlen
 
 }
 
+
+void selectUserById(size_t id){
+    sqlite3* DB;
+    char* messaggeError;
+    int exit = sqlite3_open("ATM.db", &DB);
+  //  string query = "SELECT * FROM PERSON;";
+
+    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+
+   // sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
+
+    string sql("SELECT * FROM USER WHERE id_user=" + to_string(id) +";");
+
+    exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &messaggeError);
+    if (exit != SQLITE_OK) {
+        std::cerr << "Error Insert" << std::endl;
+        sqlite3_free(messaggeError);
+        printf(messaggeError);
+    }
+    else
+        std::cout << "Records created Successfully!" << std::endl;
+
+    cout << "STATE OF TABLE AFTER INSERT" << endl;
+
+    sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
+
+
+    sqlite3_close(DB);
+}
+
+void getAllUsers(){// make not void
+    sqlite3* DB;
+    char* messaggeError;
+    int exit = sqlite3_open("ATM.db", &DB);
+    //string query = "SELECT * FROM PERSON;";
+
+    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+
+   // sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
+
+    string sql("SELECT * FROM USER;");
+
+    exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &messaggeError);
+    if (exit != SQLITE_OK) {
+        std::cerr << "Error SELECT" << std::endl;
+        sqlite3_free(messaggeError);
+        printf(messaggeError);
+    }
+    else
+        std::cout << "Records selected Successfully!" << std::endl;
+
+    cout << "STATE OF TABLE AFTER SELECT" << endl;
+
+    sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
+
+    sqlite3_close(DB);
+
+}
+
+
+void deleteUsers(size_t iduser){
+    sqlite3* DB;
+    char* messaggeError;
+    int exit = sqlite3_open("ATM.db", &DB);
+   // string query = "SELECT * FROM PERSON;";
+
+    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+
+  //  sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
+
+    string sql("DELETE FROM USER WHERE id_user = " + to_string(iduser) + ";");
+
+    exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &messaggeError);
+    if (exit != SQLITE_OK) {
+        std::cerr << "Error DELETE" << std::endl;
+        sqlite3_free(messaggeError);
+        printf(messaggeError);
+    }
+    else
+        std::cout << "Records deleted Successfully!" << std::endl;
+
+    cout << "STATE OF TABLE AFTER delete" << endl;
+
+    sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
+
+    sqlite3_close(DB);
+
+}
 #endif //STARBANKATM_MOOP_KMA_USERSERVICE_H
