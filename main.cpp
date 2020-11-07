@@ -88,6 +88,7 @@ int main()
     cout << t1.transactionDateTime() << endl;
 
     time_t now1 = time(0);
+    now1 += 100;
 
     // convert now to string form
     char* dt1 = ctime(&now1);
@@ -95,7 +96,7 @@ int main()
     *t1.transactionDateTime() = (*dt1);
     cout << &dt1 << endl;
 
-    cout << &(*t1.transactionDateTime()) << endl;
+    cout << t1.transactionDateTime() << endl;
 
 
 }

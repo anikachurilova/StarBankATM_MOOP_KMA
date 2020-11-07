@@ -36,7 +36,7 @@ public:
    const size_t& cardDestinationNumber() const;
    const char* transactionDateTime() const;
 
-   void makeTransaction();
+  // void makeTransaction(); to DAO
 };
 ostream& operator<<(ostream& os, const Transaction&);
 
