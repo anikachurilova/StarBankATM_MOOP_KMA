@@ -19,10 +19,13 @@ private:
     size_t _limit;
 
 public:
-
     class BadAmount;
     // class BadAccount;
     class BadPIN;
+
+    Account(size_t userId, size_t cardNumber, size_t pin, size_t cvv, size_t sumOnBalance, size_t limit);
+    ~Account();
+
 
     size_t& userId();
     size_t& cardNumber();
@@ -38,7 +41,7 @@ public:
     const char& expiryDate() const;//????
     const size_t& cvvNumber() const;
     const size_t& sumOnBalance() const;
-    const size_t& lemit() const;
+    const size_t& limit() const;
 
     virtual void putMoney();
     void blockCard();
