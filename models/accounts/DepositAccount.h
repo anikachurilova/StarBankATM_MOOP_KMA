@@ -12,7 +12,7 @@ private:
     size_t _depositPercentage;
 public:
     DepositAccount(size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance,
-                   size_t limit,  bool isBlocked,size_t depositTerm, size_t depositPercentage, char* expiryDate,
+                   size_t limit,char* expiryDate,  bool isBlocked,size_t depositTerm, size_t depositPercentage,
                    char* depositExpiryDate = nullptr);
     ~DepositAccount();
 
@@ -24,9 +24,10 @@ public:
     const char* depositExpiryDate() const;
     const size_t& depositPercentage() const;
 
-    void putMoney(double amount);//емаунт+беленс
-    double chargePercentageOfCost();//баланс и процент и вычисл что должно сняться
-    void close();//
+    void putMoney(double amount);
+    double chargePercentageOfCost();
+    void close();// + транзекшн с этого на юниверсал!!!!!!!!!!!
+    void openNew(size_t depositTerm, size_t depositPercentage);
 };
 ostream& operator<<(ostream&, const DepositAccount&);
 #endif //STARBANKATM_MOOP_KMA_DEPOSITACCOUNT_H

@@ -14,7 +14,6 @@ private:
     size_t _cvvNumber;
     size_t _limit;
     bool _isBocked;
-
 protected:
     double _sumOnBalance;
 public:
