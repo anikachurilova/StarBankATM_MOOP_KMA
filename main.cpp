@@ -148,6 +148,7 @@ int main()
     cout << (acc.depositExpiryDate() == "" ? "*" : acc.depositExpiryDate()) << endl;
     cout << "1: " <<acc.depositExpiryDate() << endl;
     cout << "2: " <<acc.expiryDate() << endl;
+cout << "charge: " << acc.chargePercentageOfCost();
 
 }
 

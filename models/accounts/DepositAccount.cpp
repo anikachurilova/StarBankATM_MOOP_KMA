@@ -56,8 +56,8 @@ void DepositAccount::close(){ //+ транзекшн с этого на юнив
 }
 
 void DepositAccount::openNew(size_t depositTerm, size_t depositPercentage) {
-    depositTerm = _depositTerm;
-    depositPercentage = _depositPercentage;
+    _depositTerm = depositTerm;
+    _depositPercentage = depositPercentage;
 
     time_t now = time(0);
     now += depositTerm;
