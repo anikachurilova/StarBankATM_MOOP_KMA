@@ -2,6 +2,7 @@
 #include <iostream>
 #include "ATM.h"
 #include "models/Transaction.h"
+#include "models/accounts/CreditAccount.h"
 
 using namespace std;
 
@@ -77,28 +78,46 @@ int main()
 //        cout << s;
 //    }
 
-    time_t now = time(0);
+  //  time_t now = time(0);
 
     // convert now to string form
-    char* dt = ctime(&now);
-    cout << &dt << endl;
-
-
-    Transaction t1(100, 1111,2222,dt,1);
-    cout << t1.transactionDateTime() << endl;
+//    char* dt = ctime(&now);
+//    cout << &dt << endl;
+//
+//
+//    Transaction t1(100, 1111,2222,dt,1);
+//    cout << t1.transactionDateTime() << endl;
 
     time_t now1 = time(0);
-    now1 += 100;
+    now1 += 9999999;
 
     // convert now to string form
     char* dt1 = ctime(&now1);
 
-    *t1.transactionDateTime() = (*dt1);
-    cout << &dt1 << endl;
+//    *t1.transactionDateTime() = (*dt1);
+//    cout << &dt1 << endl;
+//
+//    cout << t1.transactionDateTime() << endl;
+//
 
-    cout << t1.transactionDateTime() << endl;
+
+    CreditAccount ca1(9000000, 2000, 1, 1111, 000,123, 0, 500, false,dt1, nullptr);
 
 
+//    cout << ca1.creditExpiryDate() << endl;
+//    cout << ca1.expiryDate() << endl;
 
+    cout << ca1.creditExpiryDate() << endl;
+    cout << ca1.expiryDate() << endl;
+
+    ca1.close();
+
+    cout << ca1.expiryDate() << endl;
+    cout << (ca1.creditExpiryDate() == nullptr ? "*" : ca1.creditExpiryDate()) << endl;
+
+    ca1.openNew(2222,1111);
+
+    cout << ca1.expiryDate() << endl;
+    cout << ca1.creditExpiryDate() << endl;
 }
 

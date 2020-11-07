@@ -9,8 +9,9 @@ CreditAccount::CreditAccount(size_t creditTerm, double creditDept, size_t userId
     if(creditExpiryDate == nullptr){
         _sumOnBalance = creditDept;
         time_t now = time(0);
-        char* dt = ctime(&now);
-        _creditExpiryDate = dt + creditTerm;
+        now += creditTerm;
+        char* dt1 = ctime(&now);
+        _creditExpiryDate = dt1;
     }else{
         _creditExpiryDate = creditExpiryDate;
     }
@@ -62,6 +63,7 @@ void CreditAccount::openNew(size_t creditTerm, double creditDept) {
     _sumOnBalance = creditDept;
 
     time_t now = time(0);
+    now += creditTerm;
     char* dt = ctime(&now);
-    _creditExpiryDate = dt + creditTerm;
+    _creditExpiryDate = dt;
 }
