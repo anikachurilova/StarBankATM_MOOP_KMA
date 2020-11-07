@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="StarBankATM_MOOP_KMA"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="StarBankATM_MOOP_KMA">
+				<Option output="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/StarBankATM_MOOP_KMA.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 StarBankATM_MOOP_KMA"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="StarBankATM_MOOP_KMA/fast">
+				<Option output="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/StarBankATM_MOOP_KMA.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/9.2.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 StarBankATM_MOOP_KMA/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/ATM.cpp">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/ATM.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/CardScanner.cpp">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/CardScanner.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/CashDispencer.cpp">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/CashDispencer.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/SessionManager.cpp">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/SessionManager.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/Storage.cpp">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/Storage.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/main.cpp">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/Transaction.cpp">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/Transaction.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/User.cpp">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/User.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/UserOld.cpp">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/UserOld.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/Account.cpp">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/Account.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/AccountOld.cpp">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/AccountOld.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/CreditAccount.cpp">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/CreditAccount.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/DepositAccount.cpp">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/DepositAccount.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/UniversalAccount.cpp">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/UniversalAccount.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

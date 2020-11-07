@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\StarBankATM_MOOP_KMA.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\StarBankATM_MOOP_KMA.dir/objects.a @CMakeFiles\StarBankATM_MOOP_KMA.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\StarBankATM_MOOP_KMA.dir/objects.a -Wl,--no-whole-archive  -o StarBankATM_MOOP_KMA.exe -Wl,--out-implib,libStarBankATM_MOOP_KMA.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\StarBankATM_MOOP_KMA.dir\linklibs.rsp
