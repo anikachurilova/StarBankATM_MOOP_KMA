@@ -20,9 +20,9 @@ public:
     const size_t& creditTerm() const;
     const size_t& creditDept() const;
 
-    void putMoney(size_t amount);
+    void putMoney(double amount);
     void close();
-    void withdrawMoney(double amount);
+    void withdrawMoney(size_t amount);
 };
 
 #endif //STARBANKATM_MOOP_KMA_CREDITACCOUNT_H

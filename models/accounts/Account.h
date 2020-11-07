@@ -12,10 +12,10 @@ private:
     size_t _pin;
     char* _expiryDate; // maybe just date without time? find how to compare DateTime with Date
     size_t _cvvNumber;
-    double _sumOnBalance;
     size_t _limit;
     bool _isBocked;
-
+protected:
+    double _sumOnBalance;
 public:
     class BadAmount;
     // class BadAccount;
