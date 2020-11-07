@@ -1,7 +1,3 @@
-//
-// Created by Anika on 07.11.2020.
-//
-
 #ifndef STARBANKATM_MOOP_KMA_CREDITACCOUNT_H
 #define STARBANKATM_MOOP_KMA_CREDITACCOUNT_H
 #include "Account.h"
