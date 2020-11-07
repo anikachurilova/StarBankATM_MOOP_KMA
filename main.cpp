@@ -1,6 +1,5 @@
 
 #include <iostream>
-#include <time.h>
 #include "ATM.h"
 #include "Transaction.h"
 
@@ -82,17 +81,23 @@ int main()
 
     // convert now to string form
     char* dt = ctime(&now);
+    cout << &dt << endl;
+
 
     Transaction t1(100, 1111,2222,dt,1);
-    cout << t1.transactionDateTime();
+    cout << t1.transactionDateTime() << endl;
 
     time_t now1 = time(0);
+    now1 += 100;
 
     // convert now to string form
     char* dt1 = ctime(&now1);
-    //dt1 = t1.transactionDateTime();
-    char* ttt = t1.transactionDateTime();
-    ttt = dt1;
+
+    *t1.transactionDateTime() = (*dt1);
+    cout << &dt1 << endl;
+
+    cout << t1.transactionDateTime() << endl;
+
 
 }
 
