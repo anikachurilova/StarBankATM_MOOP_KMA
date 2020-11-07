@@ -64,6 +64,6 @@ void CreditAccount::openNew(size_t creditTerm, double creditDept) {
 
     time_t now = time(0);
     now += creditTerm;
-    char* dt = ctime(&now);
+    string dt = ctime(&now);
     _creditExpiryDate = dt;
 }

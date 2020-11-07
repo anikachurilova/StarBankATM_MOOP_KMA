@@ -7,7 +7,7 @@ private:
     double _creditDept;
     string _creditExpiryDate;
 public:
-    CreditAccount(size_t creditTerm, double creditDept, size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance, size_t limit, bool isBlocked, string expiryDate, string creditExpiryDate = nullptr);
+    CreditAccount(size_t creditTerm, double creditDept, size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance, size_t limit, bool isBlocked, string expiryDate, string creditExpiryDate = "");
     ~CreditAccount();
 
     size_t& creditTerm();
