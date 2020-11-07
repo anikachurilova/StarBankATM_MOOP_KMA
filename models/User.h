@@ -17,11 +17,17 @@ public:
     ~User();
 
 
-//	void setAccounts(map<string, Account>& _allAccounts);
+    size_t& id();
+    string& firstName();
+    string& lastName();
+    string& middleName();
 
-    string getFirstName() const { return _firstName; };
-    string getLastName() const { return _lastName; };
-//	map<string, Account> getAllAccounts()const { return _allAccounts; };
+
+    const size_t& id() const;
+    const string& firstName() const;
+    const string& lastName() const;
+    const string& middleName() const;
+
 
     void seeAllTransactions();
     void createTransaction();
