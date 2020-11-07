@@ -1,3 +1,4 @@
+#include <time.h>
 #include "Transaction.h"
 
 Transaction::Transaction(size_t transactionSum, size_t cardSourceNumber, size_t cardDestinationNumber, char* transactionDateTime, size_t transactionId):
@@ -10,7 +11,7 @@ Transaction::Transaction(size_t transactionSum, size_t cardSourceNumber, size_t 
 
         //create id and time
     }else{
-        _transactionId = transactionId;
+        _transactionId = transactionId;//????????????????????
         _transactionDateTime = transactionDateTime;
     }
     return;
