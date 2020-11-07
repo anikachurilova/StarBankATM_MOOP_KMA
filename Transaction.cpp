@@ -3,6 +3,11 @@
 Transaction::Transaction(size_t transactionSum, size_t cardSourceNumber, size_t cardDestinationNumber, char* transactionDateTime, size_t transactionId):
                             _transactionSum(transactionSum), _cardSourceNumber(cardSourceNumber), _cardDestinationNumber(cardDestinationNumber){
     if(transactionId == 0){
+        time_t now = time(0);
+        char* dt = ctime(&now);
+        _transactionDateTime = dt;
+        //_transactionId =
+
         //create id and time
     }else{
         _transactionId = transactionId;
