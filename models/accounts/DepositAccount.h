@@ -8,11 +8,14 @@ using namespace std;
 class DepositAccount : public Account{
 private:
     size_t _depositTerm;
-    size_t _depositExpiryDate;
+    char* _depositExpiryDate;//now+term в конструкторе
     size_t _depositPercentage;
 public:
+    DepositAccount(size_t depositTerm, char* _depositExpiryDate, size_t _depositPercentage);
+    ~DepositAccount();
+
     size_t& depositTerm();
-    size_t& depositExpiryDate();
+    char* depositExpiryDate();
     size_t& depositPercentage();
 
     const size_t& depositTerm() const;
