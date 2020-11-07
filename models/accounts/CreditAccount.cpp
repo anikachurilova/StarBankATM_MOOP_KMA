@@ -1,3 +1,4 @@
+#include <time.h>
 #include "CreditAccount.h"
 
 CreditAccount::CreditAccount(size_t creditTerm, double creditDept, size_t userId, size_t cardNumber, size_t pin,

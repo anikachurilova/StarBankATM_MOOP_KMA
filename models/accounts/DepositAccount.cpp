@@ -10,7 +10,7 @@ DepositAccount::DepositAccount(size_t userId, size_t cardNumber, size_t pin, siz
      if(depositExpiryDate == nullptr){
          time_t now = time(0);
          char* dt = ctime(&now);
-         depositExpiryDate = dt;
+         depositExpiryDate = dt + depositTerm;
      } else{
          depositExpiryDate = _depositExpiryDate;
      }
@@ -41,14 +41,14 @@ const size_t& DepositAccount::depositPercentage() const{
 }
 
 void DepositAccount::putMoney(double amount){
-     amount + sumOnBalance();
+    _sumOnBalance += amount;
 }
 
 double DepositAccount::chargePercentageOfCost(){
-    return sumOnBalance() + depositPercentage();
+    return (sumOnBalance() * depositPercentage()) / 100;
 }
 
-void DepositAccount::close(){ //+ транзекшн с этого на юниверсал !!!!!!!!!!!!!!!!!!!
+void DepositAccount::close(){ //+ транзекшн с этого на юниверсал !!!!!!!!!!!!!!!!!!! транзекшн(самон беленс + процент)
     _depositTerm = 0;
     _depositPercentage = 0;
     _depositExpiryDate = nullptr;
@@ -57,5 +57,8 @@ void DepositAccount::close(){ //+ транзекшн с этого на юнив
 void DepositAccount::openNew(size_t depositTerm, size_t depositPercentage) {
     depositTerm = _depositTerm;
     depositPercentage = _depositPercentage;
+    time_t now = time(0);
+    char* dt = ctime(&now);
+    _depositExpiryDate = dt + depositTerm;
 }
 
