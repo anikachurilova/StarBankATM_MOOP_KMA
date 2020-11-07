@@ -3,6 +3,8 @@
 #include <iostream>
 using namespace std;
 #include <map>
+#ifndef STARBANKATM_MOOP_KMA_USER_H
+#define STARBANKATM_MOOP_KMA_USER_H
 
 class User {
 
@@ -30,3 +32,4 @@ public:
 };
 ostream& operator<<(ostream&, const User&);
 
+#endif

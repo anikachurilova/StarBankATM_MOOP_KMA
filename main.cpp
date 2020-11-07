@@ -5,10 +5,12 @@
 #include "models/Transaction.h"
 #include "models/accounts/CreditAccount.h"
 #include "models/accounts/DepositAccount.h"
+#include <stdio.h>
+#include <sqlite3.h>
 
 using namespace std;
 
-int main()
+int main(int argc, char **argv)
 {
 //    User u1("A","B");
 //    Account a1(u1,"3333","33",false,100,500);
@@ -137,24 +139,40 @@ int main()
 
 
 
-    time_t my_time1 = time(NULL);
-    my_time1 += 2134563;
-    time_t my_time2 = time(NULL);
+//    time_t my_time1 = time(NULL);
+//    my_time1 += 2134563;
+//    time_t my_time2 = time(NULL);
+//
+//    string a = ctime(&my_time2);
+//    string b = ctime(&my_time1);
+//
+//    DepositAccount acc(111, 222, 222, 222, 3000,500, a,false,200000000,2,b);
+//    cout << (acc.depositExpiryDate() == "" ? "*" : acc.depositExpiryDate()) << endl;
+//    cout << "1: " <<acc.depositExpiryDate() << endl;
+//    cout << "2: " <<acc.expiryDate() << endl;
+//
+//    acc.close();
+//    acc.openNew(2000000,2);
+//    cout << (acc.depositExpiryDate() == "" ? "*" : acc.depositExpiryDate()) << endl;
+//    cout << "1: " <<acc.depositExpiryDate() << endl;
+//    cout << "2: " <<acc.expiryDate() << endl;
+//cout << "charge: " << acc.chargePercentageOfCost();
 
-    string a = ctime(&my_time2);
-    string b = ctime(&my_time1);
+    sqlite3 *db;
+    char *zErrMsg = 0;
+    int rc;
 
-    DepositAccount acc(111, 222, 222, 222, 3000,500, a,false,200000000,2,b);
-    cout << (acc.depositExpiryDate() == "" ? "*" : acc.depositExpiryDate()) << endl;
-    cout << "1: " <<acc.depositExpiryDate() << endl;
-    cout << "2: " <<acc.expiryDate() << endl;
+    rc = sqlite3_open("ATM.db", &db);
 
-    acc.close();
-    acc.openNew(2000000,2);
-    cout << (acc.depositExpiryDate() == "" ? "*" : acc.depositExpiryDate()) << endl;
-    cout << "1: " <<acc.depositExpiryDate() << endl;
-    cout << "2: " <<acc.expiryDate() << endl;
-cout << "charge: " << acc.chargePercentageOfCost();
+    if( rc ) {
+        fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+        return(0);
+    } else {
+        fprintf(stderr, "Opened database successfully\n");
+    }
+    sqlite3_close(db);
+        return 0;
+
 
 }
 
