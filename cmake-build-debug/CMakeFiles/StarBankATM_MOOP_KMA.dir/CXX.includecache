@@ -13,6 +13,8 @@ cstdio
 -
 sqlite3.h
 -
+vector
+-
 ../models/User.h
 /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/User.h
 

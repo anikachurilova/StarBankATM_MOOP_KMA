@@ -237,10 +237,12 @@ int main(int argc, char **argv)
 //        fprintf(stdout, "Operation done successfully\n");
 //    }
 
-    createUser(4,"Kim", "Kard","Frank");
 
-    selectUserById(4);
-    getAllUsers();
+
+   // createUser(4,"Kim", "Kard","Frank");
+
+   cout << selectUserById(4) << endl;
+   // getAllUsers();
    // sqlite3_close(db);
         return 0;
 
