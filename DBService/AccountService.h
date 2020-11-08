@@ -159,7 +159,7 @@ UniversalAccount getUniversalAccountByUserId(size_t id){
 
 
     try{ for(int i = 0;i<result.size();i++){
-            if(stoi(result[0][5]) == id){
+            if(stoi(result[5][i]) == id){
                 cout << stoi(result[0][i]) << endl;
                 return UniversalAccount(stoi(result[5][i]), result[0][i],result[1][i], result[3][i], stoi(result[4][i]), 10000,false, result[2][i]);
                 sqlite3_finalize(stmt);
@@ -175,6 +175,51 @@ UniversalAccount getUniversalAccountByUserId(size_t id){
     return UniversalAccount();
 }
 
+UniversalAccount getUniversalAccountByCardAndPin(string card, string pin){
+
+    sqlite3 *db;
+    sqlite3_stmt * stmt;
+
+    if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
+    {
+        sqlite3_prepare( db, "SELECT * FROM UNIVERSAL_ACCOUNT;", -1, &stmt, NULL );//preparing the statement
+        sqlite3_step( stmt );//executing the statement
+        char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
+    }
+    else
+    {
+        cout << "Failed to open db\n";
+    }
+
+    vector<vector < string > > result;
+
+    for( int i = 0; i < 6; i++ )
+        result.push_back(vector<string >());
+
+    while( sqlite3_column_text( stmt, 0 ) )
+    {
+        for( int i = 0; i < 6; i++ )
+            result[i].push_back( std::string( (char *)sqlite3_column_text( stmt, i ) ) );
+        sqlite3_step( stmt );
+    }
+
+
+    try{ for(int i = 0;i<result.size();i++){
+            if(result[0][i] == card && result[1][i] == pin){
+                cout << stoi(result[0][i]) << endl;
+                return UniversalAccount(stoi(result[5][i]), result[0][i],result[1][i], result[3][i], stoi(result[4][i]), 10000,false, result[2][i]);
+                sqlite3_finalize(stmt);
+                sqlite3_close(db);
+            }
+        }} catch (exception e) {
+    }
+
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+
+    return UniversalAccount();
+}
 
 CreditAccount getCreditAccountByUserId(size_t id){
 
@@ -207,9 +252,54 @@ CreditAccount getCreditAccountByUserId(size_t id){
 
 
     try{ for(int i = 0;i<result.size();i++){
-            if(stoi(result[0][8]) == id){
+            if(stoi(result[8][i]) == id){
                 cout << stoi(result[0][i]) << endl;
                 return CreditAccount(stoi(result[5][i]),stoi(result[7][i]),id,result[0][i],result[1][i],result[3][i],stoi(result[4][i]),10000,false,result[2][i],result[6][i]);
+                sqlite3_finalize(stmt);
+                sqlite3_close(db);
+            }
+        }} catch (exception e) {
+    }
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+    return CreditAccount();
+}
+
+CreditAccount getCreditAccountByCardAndPin(string card, string pin){
+
+
+    sqlite3 *db;
+    sqlite3_stmt * stmt;
+
+    if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
+    {
+        sqlite3_prepare( db, "SELECT * FROM CREDIT_ACCOUNT;", -1, &stmt, NULL );//preparing the statement
+        sqlite3_step( stmt );//executing the statement
+        char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
+    }
+    else
+    {
+        cout << "Failed to open db\n";
+    }
+
+    vector<vector < string > > result;
+
+    for( int i = 0; i < 9; i++ )
+        result.push_back(vector<string >());
+
+    while( sqlite3_column_text( stmt, 0 ) )
+    {
+        for( int i = 0; i < 9; i++ )
+            result[i].push_back( std::string( (char *)sqlite3_column_text( stmt, i ) ) );
+        sqlite3_step( stmt );
+    }
+
+
+    try{ for(int i = 0;i<result.size();i++){
+            if(result[0][i] == card && result[1][i] == pin){
+                cout << stoi(result[0][i]) << endl;
+                return CreditAccount(stoi(result[5][i]),stoi(result[7][i]),stoi(result[8][i]),result[0][i],result[1][i],result[3][i],stoi(result[4][i]),10000,false,result[2][i],result[6][i]);
                 sqlite3_finalize(stmt);
                 sqlite3_close(db);
             }
@@ -251,7 +341,7 @@ DepositAccount getDepositAccountByUserId(size_t id){
 
 
     try{ for(int i = 0;i<result.size();i++){
-            if(stoi(result[0][8]) == id){
+            if(stoi(result[8][i]) == id){
                 cout << stoi(result[0][i]) << endl;
                 return DepositAccount(id,result[0][i],result[1][i],result[3][i],stoi(result[4][i]),10000,result[2][i],false,stoi(result[5][i]),stoi(result[7][i]),result[8][i]);
                 sqlite3_finalize(stmt);
@@ -266,6 +356,50 @@ DepositAccount getDepositAccountByUserId(size_t id){
     return DepositAccount();
 }
 
+DepositAccount getDepositAccountByCardAndPin(string card, string pin){
+
+    DepositAccount da();
+    sqlite3 *db;
+    sqlite3_stmt * stmt;
+    if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
+    {
+        sqlite3_prepare( db, "SELECT * FROM DEPOSIT_ACCOUNT;", -1, &stmt, NULL );//preparing the statement
+        sqlite3_step( stmt );//executing the statement
+        char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
+    }
+    else
+    {
+        cout << "Failed to open db\n";
+    }
+
+    vector<vector < string > > result;
+
+    for( int i = 0; i < 9; i++ )
+        result.push_back(vector<string >());
+
+    while( sqlite3_column_text( stmt, 0 ) )
+    {
+        for( int i = 0; i < 9; i++ )
+            result[i].push_back( std::string( (char *)sqlite3_column_text( stmt, i ) ) );
+        sqlite3_step( stmt );
+    }
+
+
+    try{ for(int i = 0;i<result.size();i++){
+            if(result[0][i] == card && result[1][i] == pin){
+                cout << stoi(result[0][i]) << endl;
+                return DepositAccount(stoi(result[8][i]),result[0][i],result[1][i],result[3][i],stoi(result[4][i]),10000,result[2][i],false,stoi(result[5][i]),stoi(result[7][i]),result[8][i]);
+                sqlite3_finalize(stmt);
+                sqlite3_close(db);
+            }
+        }} catch (exception e) {
+    }
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+
+    return DepositAccount();
+}
 
 void withdrawMoneyFromCreditAccount(size_t amount, CreditAccount& ca){
     sqlite3* DB;
