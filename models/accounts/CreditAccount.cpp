@@ -19,6 +19,13 @@ CreditAccount::CreditAccount(size_t creditTerm, double creditDept, size_t userId
 
 CreditAccount::~CreditAccount(){}
 
+CreditAccount& CreditAccount::operator=(const CreditAccount& account){
+    _creditDept = account._creditDept;
+    _creditTerm = account._creditTerm;
+    _creditExpiryDate = account._creditExpiryDate;
+    return *this;
+}
+
 size_t& CreditAccount::creditTerm(){
     return _creditTerm;
 }

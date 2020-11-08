@@ -1,3 +1,4 @@
+#include <ctime>
 #include "Account.h"
 
 Account::Account(size_t userId, string cardNumber, string pin, string cvv, double sumOnBalance, size_t limit, bool isBlocked ,
@@ -16,6 +17,17 @@ Account::Account(size_t userId, string cardNumber, string pin, string cvv, doubl
 }
 
 Account::~Account() {}
+
+Account& Account::operator=(const Account& account){
+    _userId = account._userId;
+    _cardNumber = account._cardNumber;
+    _pin = account._pin;
+    _expiryDate = account._expiryDate;
+    _cvvNumber = account._cvvNumber;
+    _limit = account._limit;
+    _isBocked = account._isBocked;
+    return *this;
+}
 
 size_t&  Account::userId(){
     return _userId;

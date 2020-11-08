@@ -11,11 +11,13 @@ private:
     string _depositExpiryDate;//now+term в конструкторе
     size_t _depositPercentage;
 public:
+    DepositAccount(){}
     DepositAccount(size_t userId, string cardNumber, string pin, string cvv, double sumOnBalance,
                    size_t limit,string expiryDate,  bool isBlocked,size_t depositTerm, size_t depositPercentage,
                    string depositExpiryDate = nullptr);
     ~DepositAccount();
-
+    DepositAccount& operator=(const DepositAccount&);
+    
     size_t& depositTerm();
     string& depositExpiryDate();
     size_t& depositPercentage();
