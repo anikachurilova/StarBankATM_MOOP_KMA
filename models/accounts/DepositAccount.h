@@ -13,7 +13,7 @@ private:
 public:
     DepositAccount(size_t userId, string cardNumber, string pin, string cvv, double sumOnBalance,
                    size_t limit,string expiryDate,  bool isBlocked,size_t depositTerm, size_t depositPercentage,
-                   string depositExpiryDate = nullptr);
+                   string depositExpiryDate = "");
     ~DepositAccount();
 
     size_t& depositTerm();
