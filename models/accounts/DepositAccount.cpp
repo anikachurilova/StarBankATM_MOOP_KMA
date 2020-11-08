@@ -79,3 +79,9 @@ void DepositAccount::openNew(size_t depositTerm, size_t depositPercentage) {
     _depositExpiryDate = dt;
 }
 
+ostream& operator<<(ostream& os, const DepositAccount& acc){
+    os << "userID: " << acc.userId() << ", cardNumber: " << acc.cardNumber() << ", PIN: " << acc.pin() << "sumOnBalance: " <<", CVV: " << acc.cvvNumber() <<
+       acc.sumOnBalance()<< ", limit: " << acc.limit() << ", isBlocked? : " << acc.isBlocked() << ", ExpDate: " << acc.expiryDate() <<
+       ", depositExpiryDate: "<< acc.depositExpiryDate() << ", depositTerm: " << acc.depositTerm()<< ", depositPercentage: " << acc.depositPercentage() << endl;
+    return os;
+}

@@ -14,6 +14,6 @@ public:
     void putMoney(double amount) override;
     void withdrawMoney(size_t amount);
 };
-
+ostream& operator<<(ostream& os, const UniversalAccount& acc);
 
 #endif //STARBANKATM_MOOP_KMA_UNIVERSALACCOUNT_H

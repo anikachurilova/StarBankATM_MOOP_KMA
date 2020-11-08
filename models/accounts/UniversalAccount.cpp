@@ -26,3 +26,10 @@ void UniversalAccount::putMoney(double amount) {
 void UniversalAccount::withdrawMoney(size_t amount){
     _sumOnBalance -= amount;
 }
+
+ostream& operator<<(ostream& os, const UniversalAccount& acc){
+    os << "userID" << acc.userId() << ", cardNumber" << acc.cardNumber() << ", PIN: " << acc.pin() <<", CVV: " << acc.cvvNumber() <<
+    "sumOnBalance: " << acc.sumOnBalance()<< ", limit: " << acc.limit() << ", isBlocked? : " << acc.isBlocked() << ", ExpDate: " <<
+    acc.expiryDate() << endl;
+    return os;
+}

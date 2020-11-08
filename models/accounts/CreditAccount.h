@@ -25,5 +25,5 @@ public:
     void withdrawMoney(size_t amount);
     void openNew(size_t creditTerm, double creditDept);
 };
-
+ostream& operator<<(ostream& os, const CreditAccount& acc);
 #endif //STARBANKATM_MOOP_KMA_CREDITACCOUNT_H

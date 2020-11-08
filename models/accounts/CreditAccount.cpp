@@ -82,3 +82,10 @@ void CreditAccount::openNew(size_t creditTerm, double creditDept) {
     string dt = ctime(&now);
     _creditExpiryDate = dt;
 }
+
+ostream& operator<<(ostream& os, const CreditAccount& acc){
+    os << "userID: " << acc.userId() << ", cardNumber: " << acc.cardNumber() << ", PIN: " << acc.pin() <<", CVV: " << acc.cvvNumber() << "sumOnBalance: " <<
+    acc.sumOnBalance()<< ", limit: " << acc.limit() << ", isBlocked? : " << acc.isBlocked() << ", ExpDate: " << acc.expiryDate() <<
+    ", creditExpiryDate: "<< acc.creditExpiryDate() << ", creditTerm: " << acc.creditTerm()<< ", creditDept: " << acc.creditDept() << endl;
+    return os;
+}
