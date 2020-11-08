@@ -296,7 +296,8 @@ int main(int argc, char **argv)
             cout << "WELCOME ";
             user = selectUserById(depositAccount.userId());
             cout << user.firstName() << endl;
-            while (true) {
+            bool isWorking = true;
+            while (isWorking) {
                 cout << "CHOOSE OPERATION:" << endl;
                 cout << "1 - PUT MONEY" << endl;
                 cout << "2 - CHECK BALANCE" << endl;
@@ -305,6 +306,8 @@ int main(int argc, char **argv)
                 cout << "5 - SHOW DEPOSIT TERM" << endl;
                 cout << "6 - SHOW DEPOSIT PERCENTAGE" << endl;
                 cout << "7 - SHOW DEPOSIT EXPIRY DATE" << endl;
+                cout << "8 - SEE ALL TRANSACTIONS" << endl;
+                cout << "9 - EXIT" << endl;
                 int choosen;
                 cin >> choosen;
                 switch (choosen) {
@@ -336,8 +339,15 @@ int main(int argc, char **argv)
                     case 7:
                         cout << "YOUR DEPOSIT EXPIRY DATE: " << depositAccount.depositExpiryDate() << endl;
                         break;
+                    case 8:
+                        getAllTransactionsByCard(depositAccount.cardNumber());
+                        break;
+                    case 9:
+                        isWorking = false;
+                        break;
                     default:
                         cout << "INVALID ENTER" << endl;
+                        break;
                 }
                 cout << endl;
             }
@@ -349,13 +359,18 @@ int main(int argc, char **argv)
             cout << "WELCOME ";
             user = selectUserById(universalAccount.userId());
             cout << user.firstName() << endl;
-            while (true) {
+            bool isWorking = true;
+            while (isWorking) {
                 cout << "CHOOSE OPERATION:" << endl;
                 cout << "1 - PUT MONEY" << endl;
-                cout << "2 -  WITHDRAW MONEY" << endl;
+                cout << "2 - WITHDRAW MONEY" << endl;
                 cout << "3 - CHECK BALANCE" << endl;
                 cout << "4 - CHECK LIMIT" << endl;
-                cout << "6 - CHANGE LIMIT" << endl;
+                cout << "5 - CHANGE LIMIT" << endl;
+                cout << "6 - PUT MONEY TO ANOTHER ACCOUNT" << endl;
+                cout << "7 - PUT MONEY TO MY ACCOUNT" << endl;
+                cout << "8 - SEE ALL TRANSACTIONS" << endl;
+                cout << "9 - EXIT" << endl;
                 int choosen;
                 cin >> choosen;
                 switch (choosen) {
@@ -385,8 +400,34 @@ int main(int argc, char **argv)
                         cout << "ENTER NEW LIMIT: ";
                         int limit;
                         cin >> limit;
-                        depositAccount.limit() = limit;
-                        cout << "YOUR NEW LIMIT: " << depositAccount.limit() << endl;
+                        universalAccount.limit() = limit;
+                        cout << "YOUR NEW LIMIT: " << universalAccount.limit() << endl;
+                        break;
+                    case 6: {
+                        cout << "ENTER SUM TO PUT: " << endl;
+                        int sumPut2;
+                        cin >> sumPut2;
+                        cout << "ENTER CARD NUMBER TO PUT: " << endl;
+                        string cardPut;
+                        cin >> cardPut;
+                        makeTransactionFromUniversalToAnother(universalAccount, cardPut, sumPut2);
+                    }
+                    case 7:
+                        cout << "ENTER SUM TO PUT: " << endl;
+                        int sumPut3;
+                        cin >> sumPut3;
+                        cout << "WHICH ACCOUNT DO YOU WANT TO PUT MONEY TO? " << endl;
+                        cout << "1 - DEPOSIT ACCOUNT" << endl;
+                        cout << "2 - CREDIT ACCOUNT" << endl;
+                        int acctype;
+                        cin >> acctype;
+                           if(acctype == '1') makeTransactionFromUniversalDeposit(universalAccount,depositAccount,sumPut3);
+                           else if(acctype == '2')  makeTransactionFromUniversalToCredit(universalAccount,creditAccount,sumPut3);
+                    case 8:
+                        getAllTransactionsByCard(universalAccount.cardNumber());
+                        break;
+                    case 9:
+                        isWorking = false;
                         break;
                     default:
                         cout << "INVALID ENTER" << endl;
@@ -402,6 +443,77 @@ int main(int argc, char **argv)
             cout << "WELCOME ";
             user = selectUserById(creditAccount.userId());
             cout << user.firstName() << endl;
+            bool isWorking = true;
+            while (isWorking) {
+                cout << "CHOOSE OPERATION:" << endl;
+                cout << "1 - PUT MONEY" << endl;
+                cout << "2 - WITHDRAW MONEY" << endl;
+                cout << "3 - CHECK BALANCE" << endl;
+                cout << "4 - CHECK LIMIT" << endl;
+                cout << "5 - CHANGE LIMIT" << endl;
+                cout << "6 - PUT MONEY TO ANOTHER ACCOUNT" << endl;
+                cout << "7 - PUT MONEY TO MY ACCOUNT" << endl;
+                cout << "8 - SEE ALL TRANSACTIONS" << endl;
+                cout << "9 - EXIT" << endl;
+                int choosen;
+                cin >> choosen;
+                switch (choosen) {
+                    case 1:
+                        cout << "ENTER SUM TO PUT: " << endl;
+                        int sumPut;
+                        cin >> sumPut;
+                        putMoneyOnCreditAccount(sumPut,creditAccount);
+                        break;
+                    case 2:
+                        cout << "ENTER SUM TO WITHDRAW: " << endl;
+                        int sumOut;
+                        cin >> sumOut;
+                        withdrawMoneyFromCreditAccount(sumPut,creditAccount);
+                    case 3:
+                        cout << "YOUR BALANCE: " << creditAccount.sumOnBalance() <<endl;
+                        break;
+                    case 4:
+                        cout << "YOUR LIMIT: " << creditAccount.limit() << endl;
+                        break;
+                    case 5:
+                        cout << "ENTER NEW LIMIT: ";
+                        int limit;
+                        cin >> limit;
+                        creditAccount.limit() = limit;
+                        cout << "YOUR NEW LIMIT: " << creditAccount.limit() << endl;
+                        break;
+                    case 6: {
+                        cout << "ENTER SUM TO PUT: " << endl;
+                        int sumPut2;
+                        cin >> sumPut2;
+                        cout << "ENTER CARD NUMBER TO PUT: " << endl;
+                        string cardPut;
+                        cin >> cardPut;
+                        makeTransactionFromCreditToAnother(creditAccount, cardPut, sumPut2);
+                    }
+                    case 7:
+                        cout << "ENTER SUM TO PUT: " << endl;
+                        int sumPut3;
+                        cin >> sumPut3;
+                        cout << "WHICH ACCOUNT DO YOU WANT TO PUT MONEY TO? " << endl;
+                        cout << "1 - DEPOSIT ACCOUNT" << endl;
+                        cout << "2 - CREDIT ACCOUNT" << endl;
+                        int acctype;
+                        cin >> acctype;
+                        if(acctype == '1') makeTransactionFromCreditToDeposit(creditAccount,depositAccount,sumPut3);
+                        else if(acctype == '2')  makeTransactionFromCreditToUniversal(creditAccount,universalAccount,sumPut3);
+                    case 8:
+                        getAllTransactionsByCard(creditAccount.cardNumber());
+                        break;
+                    case 9:
+                        isWorking = false;
+                        break;
+                    default:
+                        cout << "INVALID ENTER" << endl;
+                        break;
+                }
+                cout << endl;
+            }
         }
 
         default:
