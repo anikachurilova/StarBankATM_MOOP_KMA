@@ -1,7 +1,7 @@
 #include <time.h>
 #include "Transaction.h"
 
-Transaction::Transaction(double transactionSum, size_t cardSourceNumber, size_t cardDestinationNumber, char* transactionDateTime, size_t transactionId):
+Transaction::Transaction(double transactionSum, string cardSourceNumber, string cardDestinationNumber, string transactionDateTime, size_t transactionId):
                             _transactionSum(transactionSum), _cardSourceNumber(cardSourceNumber), _cardDestinationNumber(cardDestinationNumber){
     if(transactionId == 0){
         time_t now = time(0);
@@ -38,15 +38,15 @@ double& Transaction::transactionSum() {
     return _transactionSum;
 }
 
-size_t& Transaction::cardDestinationNumber() {
+string& Transaction::cardDestinationNumber() {
     return _cardDestinationNumber;
 }
 
-size_t& Transaction::cardSourceNumber() {
+string& Transaction::cardSourceNumber() {
     return _cardSourceNumber;
 }
 
-char* Transaction::transactionDateTime() {
+string& Transaction::transactionDateTime() {
     return _transactionDateTime;
 }
 
@@ -63,14 +63,14 @@ const double& Transaction::transactionSum() const{
     return _transactionSum;
 }
 
-const size_t& Transaction::cardDestinationNumber() const{
+const string& Transaction::cardDestinationNumber() const{
     return _cardDestinationNumber;
 }
 
-const size_t& Transaction::cardSourceNumber() const{
+const string& Transaction::cardSourceNumber() const{
     return _cardSourceNumber;
 }
 
-const char* Transaction::transactionDateTime() const{
+const string& Transaction::transactionDateTime() const{
     return _transactionDateTime;
 }

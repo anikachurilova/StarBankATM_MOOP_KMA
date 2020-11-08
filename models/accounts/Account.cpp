@@ -1,8 +1,19 @@
 #include "Account.h"
 
-Account::Account(size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance, size_t limit,
-                 string expiryDate, bool isBlocked):_userId(userId), _cardNumber(cardNumber), _pin(pin),
-                 _cvvNumber(cvv), _sumOnBalance(sumOnBalance), _limit(limit), _expiryDate(expiryDate), _isBocked(isBlocked){}
+Account::Account(size_t userId, string cardNumber, string pin, string cvv, double sumOnBalance, size_t limit, bool isBlocked ,
+                 string expiryDate):_userId(userId), _cardNumber(cardNumber), _pin(pin),
+                 _cvvNumber(cvv), _sumOnBalance(sumOnBalance), _limit(limit), _isBocked(isBlocked){
+
+    if(expiryDate.empty()){
+        time_t now = time(0);
+        now += 29384020;
+        char* dt1 = ctime(&now);
+        _expiryDate = dt1;
+    }else{
+        _expiryDate = expiryDate;
+    }
+
+}
 
 Account::~Account() {}
 

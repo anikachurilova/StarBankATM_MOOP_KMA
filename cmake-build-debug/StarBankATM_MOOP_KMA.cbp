@@ -98,6 +98,12 @@
 		<Unit filename="/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/CashDispencer.h">
 			<Option target="StarBankATM_MOOP_KMA"/>
 		</Unit>
+		<Unit filename="/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/DBService/AccountService.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
+		<Unit filename="/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/DBService/TransactionService.h">
+			<Option target="StarBankATM_MOOP_KMA"/>
+		</Unit>
 		<Unit filename="/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/DBService/UserService.h">
 			<Option target="StarBankATM_MOOP_KMA"/>
 		</Unit>

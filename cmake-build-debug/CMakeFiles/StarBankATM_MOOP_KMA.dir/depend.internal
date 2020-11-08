@@ -10,6 +10,7 @@ CMakeFiles/StarBankATM_MOOP_KMA.dir/CashDispencer.cpp.o
  /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/CashDispencer.h
 CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o
  /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/ATM.h
+ /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/DBService/TransactionService.h
  /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/DBService/UserService.h
  /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/Main.cpp
  /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/Transaction.h
@@ -17,6 +18,7 @@ CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o
  /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/Account.h
  /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/CreditAccount.h
  /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/DepositAccount.h
+ /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/UniversalAccount.h
 CMakeFiles/StarBankATM_MOOP_KMA.dir/SessionManager.cpp.o
  /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/SessionManager.cpp
 CMakeFiles/StarBankATM_MOOP_KMA.dir/Storage.cpp.o

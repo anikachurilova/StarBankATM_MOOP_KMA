@@ -8,6 +8,16 @@
 
 /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/ATM.h
 
+/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/DBService/TransactionService.h
+../models/Transaction.h
+/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/Transaction.h
+cstdio
+-
+sqlite3.h
+-
+vector
+-
+
 /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/DBService/UserService.h
 cstdio
 -
@@ -31,8 +41,12 @@ models/accounts/CreditAccount.h
 /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/CreditAccount.h
 models/accounts/DepositAccount.h
 /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/DepositAccount.h
+models/accounts/UniversalAccount.h
+/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/UniversalAccount.h
 DBService/UserService.h
 /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/DBService/UserService.h
+DBService/TransactionService.h
+/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/DBService/TransactionService.h
 cstdio
 -
 sqlite3.h
@@ -71,6 +85,10 @@ string
 -
 iostream
 -
+Account.h
+/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/Account.h
+
+/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/UniversalAccount.h
 Account.h
 /Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/Account.h
 

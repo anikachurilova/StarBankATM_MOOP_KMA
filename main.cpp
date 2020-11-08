@@ -8,6 +8,7 @@
 #include "models/accounts/UniversalAccount.h"
 
 #include "DBService/UserService.h"
+#include "DBService/TransactionService.h"
 #include <cstdio>
 #include <sqlite3.h>
 #include <stdlib.h>
@@ -243,13 +244,15 @@ int main(int argc, char **argv)
 
    // createUser(4,"Kim", "Kard","Frank");
 
-   cout << selectUserById(4) << endl;
+   //cout << selectUserById(4) << endl;
 
+   //createTransaction(320,"2222","1111","",2);
+
+   //getAllTransactions();
+
+   getAllTransactionsByCard("1111");
    // getAllUsers();
    // sqlite3_close(db);
-
         return 0;
-
-
 }
 

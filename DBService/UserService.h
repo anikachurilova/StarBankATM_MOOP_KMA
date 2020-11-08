@@ -46,13 +46,13 @@ void createUser(size_t iduser, string firstname, string lastname, string middlen
     sqlite3* DB;
     char* messaggeError;
     int exit = sqlite3_open("ATM.db", &DB);
-    string query = "SELECT * FROM PERSON;";
+   // string query = "SELECT * FROM PERSON;";
 
     cout << "STATE OF TABLE BEFORE INSERT" << endl;
 
-    sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
+ //   sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
 
-    string sql("INSERT INTO USER (`id_user`,`first_name`,`last_name`,`middle_name`)"
+    string sql("INSERT INTO `USER` (`id_user`,`first_name`,`last_name`,`middle_name`)"
                " VALUES(" + to_string(iduser) + ", '" + firstname + "', '" + lastname + "', '" + middlename + "');"
                );
 
@@ -67,7 +67,7 @@ void createUser(size_t iduser, string firstname, string lastname, string middlen
 
     cout << "STATE OF TABLE AFTER INSERT" << endl;
 
-    sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
+    sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
 
 //    sql+= id_user;
@@ -150,7 +150,7 @@ User selectUserById(size_t id){
 
     if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
     {
-        sqlite3_prepare( db, "SELECT * FROM USER;", -1, &stmt, NULL );//preparing the statement
+        sqlite3_prepare( db, "SELECT * FROM `USER`;", -1, &stmt, NULL );//preparing the statement
         sqlite3_step( stmt );//executing the statement
         char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
     }
@@ -196,7 +196,7 @@ User selectUserByCard(string card){
 
     if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
     {
-        sqlite3_prepare( db, "SELECT account_number, user_id FROM CREDIT_ACCOUNT;", -1, &stmt, NULL );//preparing the statement
+        sqlite3_prepare( db, "SELECT account_number, user_id FROM `CREDIT_ACCOUNT`;", -1, &stmt, NULL );//preparing the statement
         sqlite3_step( stmt );//executing the statement
         char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
     }
@@ -235,7 +235,7 @@ User selectUserByCard(string card){
 
     if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
     {
-        sqlite3_prepare( db, "SELECT account_number, user_id FROM DEPOSIT_ACCOUNT;", -1, &stmt1, NULL );//preparing the statement
+        sqlite3_prepare( db, "SELECT account_number, user_id FROM `DEPOSIT_ACCOUNT`;", -1, &stmt1, NULL );//preparing the statement
         sqlite3_step( stmt1 );//executing the statement
         char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
     }
@@ -278,7 +278,7 @@ User selectUserByCard(string card){
 
     if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
     {
-        sqlite3_prepare( db, "SELECT account_number, user_id FROM UNIVERSAL_ACCOUNT;", -1, &stmt2, NULL );//preparing the statement
+        sqlite3_prepare( db, "SELECT account_number, user_id FROM `UNIVERSAL_ACCOUNT`;", -1, &stmt2, NULL );//preparing the statement
         sqlite3_step( stmt2 );//executing the statement
         char * str = (char *) sqlite3_column_text( stmt2, 0 );///reading the 1st column of the result
     }
@@ -336,7 +336,7 @@ void getAllUsers(){// make not void
 
    // sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
 
-    string sql("SELECT * FROM USER;");
+    string sql("SELECT * FROM `USER`;");
 
     exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &messaggeError);
     if (exit != SQLITE_OK) {
@@ -377,7 +377,7 @@ void deleteUsers(size_t iduser){
 
   //  sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
 
-    string sql("DELETE FROM USER WHERE id_user = " + to_string(iduser) + ";");
+    string sql("DELETE FROM `USER` WHERE id_user = " + to_string(iduser) + ";");
 
     exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &messaggeError);
     if (exit != SQLITE_OK) {

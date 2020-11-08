@@ -3,8 +3,8 @@
 
 
 
-UniversalAccount::UniversalAccount(size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance,
-        size_t limit,string expiryDate,  bool isBlocked):Account(userId,cardNumber,pin,cvv,sumOnBalance,limit,expiryDate,isBlocked){
+UniversalAccount::UniversalAccount(size_t userId, string cardNumber, string pin, string cvv, double sumOnBalance,
+        size_t limit,  bool isBlocked,string expiryDate):Account(userId,cardNumber,pin,cvv,sumOnBalance,limit,isBlocked,expiryDate){
 
 }
 

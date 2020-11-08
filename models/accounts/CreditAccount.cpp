@@ -6,7 +6,7 @@ CreditAccount::CreditAccount(size_t creditTerm, double creditDept, size_t userId
                              string creditExpiryDate) : Account(userId,cardNumber,pin,cvv,sumOnBalance,limit,expiryDate,isBlocked),
                              _creditDept(creditDept), _creditTerm(creditTerm)
                              {
-    if(creditExpiryDate == ""){
+    if(creditExpiryDate.empty()){
         _sumOnBalance = creditDept;
         time_t now = time(0);
         now += creditTerm;

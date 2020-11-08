@@ -12,27 +12,27 @@ class Transaction {
 private:
     size_t _transactionId;
     double _transactionSum;
-    size_t _cardSourceNumber;
-    size_t _cardDestinationNumber;
-    char* _transactionDateTime;
+    string _cardSourceNumber;
+    string _cardDestinationNumber;
+    string _transactionDateTime;
 public:
 
-    Transaction(double transactionSum, size_t cardSourceNumber, size_t cardDestinationNumber, char* transactionDateTime, size_t transactionId = 0);
+    Transaction(double transactionSum, string cardSourceNumber, string cardDestinationNumber, string transactionDateTime, size_t transactionId = 0);
     ~Transaction();
     Transaction(const Transaction&);
 
     size_t& transactionId();
     double& transactionSum();
-    size_t& cardSourceNumber();
-    size_t& cardDestinationNumber();
-    char* transactionDateTime();
+    string& cardSourceNumber();
+    string& cardDestinationNumber();
+    string& transactionDateTime();
 
 
    const size_t& transactionId() const;
    const double& transactionSum() const;
-   const size_t& cardSourceNumber() const;
-   const size_t& cardDestinationNumber() const;
-   const char* transactionDateTime() const;
+   const string& cardSourceNumber() const;
+   const string& cardDestinationNumber() const;
+   const string& transactionDateTime() const;
 
   // void makeTransaction(); to DAO
 };
