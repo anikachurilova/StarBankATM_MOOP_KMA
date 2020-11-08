@@ -161,6 +161,7 @@ User selectUserById(size_t id){
 
 
 
+
     vector<vector < string > > result;
 
     for( int i = 0; i < 4; i++ )
@@ -183,13 +184,147 @@ User selectUserById(size_t id){
     }
 
 
-   // cout << "___" <<result[0][0] << endl;
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+}
 
+User selectUserByCard(string card){
+
+    sqlite3 *db;
+    sqlite3_stmt * stmt;
+    size_t userId = 0;
+
+    if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
+    {
+        sqlite3_prepare( db, "SELECT account_number, user_id FROM CREDIT_ACCOUNT;", -1, &stmt, NULL );//preparing the statement
+        sqlite3_step( stmt );//executing the statement
+        char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
+    }
+    else
+    {
+        cout << "Failed to open db\n";
+    }
+
+
+    vector<vector < string > > result;
+
+    for( int i = 0; i < 4; i++ )
+        result.push_back(vector<string >());
+
+    while( sqlite3_column_text( stmt, 0 ) )
+    {
+        for( int i = 0; i < 4; i++ )
+            result[i].push_back( std::string( (char *)sqlite3_column_text( stmt, i ) ) );
+        sqlite3_step( stmt );
+    }
+
+
+    try{ for(int i = 0;i<result.size();i++){
+            if(result[0][i] == card){
+                userId = stoi(result[1][i]);
+               // cout << stoi(result[0][i]) << endl;
+                //return User(id,result[1][i], result[2][i], result[3][i]);
+            }
+        }} catch (exception e) {
+    }
+
+
+
+    sqlite3_stmt * stmt1;
+
+
+    if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
+    {
+        sqlite3_prepare( db, "SELECT account_number, user_id FROM DEPOSIT_ACCOUNT;", -1, &stmt1, NULL );//preparing the statement
+        sqlite3_step( stmt1 );//executing the statement
+        char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
+    }
+    else
+    {
+        cout << "Failed to open db\n";
+    }
+
+
+    vector<vector < string > > result1;
+
+    for( int i = 0; i < 4; i++ )
+        result1.push_back(vector<string >());
+
+    while( sqlite3_column_text( stmt1, 0 ) )
+    {
+        for( int i = 0; i < 4; i++ )
+            result1[i].push_back( std::string( (char *)sqlite3_column_text( stmt1, i ) ) );
+        sqlite3_step( stmt1 );
+    }
+
+
+    try{ for(int i = 0;i<result1.size();i++){
+            if(result1[0][i] == card){
+                userId = stoi(result[1][i]);
+                // cout << stoi(result[0][i]) << endl;
+                //return User(id,result[1][i], result[2][i], result[3][i]);
+            }
+        }} catch (exception e) {
+    }
+
+
+
+
+
+
+
+    sqlite3_stmt * stmt2;
+
+
+    if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
+    {
+        sqlite3_prepare( db, "SELECT account_number, user_id FROM UNIVERSAL_ACCOUNT;", -1, &stmt2, NULL );//preparing the statement
+        sqlite3_step( stmt2 );//executing the statement
+        char * str = (char *) sqlite3_column_text( stmt2, 0 );///reading the 1st column of the result
+    }
+    else
+    {
+        cout << "Failed to open db\n";
+    }
+
+
+    vector<vector < string > > result2;
+
+    for( int i = 0; i < 4; i++ )
+        result2.push_back(vector<string >());
+
+    while( sqlite3_column_text( stmt2, 0 ) )
+    {
+        for( int i = 0; i < 4; i++ )
+            result2[i].push_back( std::string( (char *)sqlite3_column_text( stmt2, i ) ) );
+        sqlite3_step( stmt2 );
+    }
+
+
+    try{ for(int i = 0;i<result2.size();i++){
+            if(result2[0][i] == card){
+                userId = stoi(result[1][i]);
+                // cout << stoi(result[0][i]) << endl;
+                //return User(id,result[1][i], result[2][i], result[3][i]);
+            }
+        }} catch (exception e) {
+    }
 
 
     sqlite3_finalize(stmt);
     sqlite3_close(db);
+
+
+
+    return selectUserById(userId);
+
+
+
+
+
+
 }
+
 
 void getAllUsers(){// make not void
     sqlite3* DB;
