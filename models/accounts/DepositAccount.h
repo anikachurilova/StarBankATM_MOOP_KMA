@@ -17,7 +17,7 @@ public:
                    string depositExpiryDate = nullptr);
     ~DepositAccount();
     DepositAccount& operator=(const DepositAccount&);
-    
+
     size_t& depositTerm();
     string& depositExpiryDate();
     size_t& depositPercentage();

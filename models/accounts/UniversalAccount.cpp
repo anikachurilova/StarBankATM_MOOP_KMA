@@ -9,7 +9,16 @@ UniversalAccount::UniversalAccount(size_t userId, string cardNumber, string pin,
 }
 
 UniversalAccount::~UniversalAccount(){}
-
+UniversalAccount& UniversalAccount::operator=(const UniversalAccount& account){
+    userId() = account.userId();
+    cardNumber() = account.cardNumber();
+    pin() = account.pin();
+    cvvNumber() = account.cvvNumber();
+    sumOnBalance() = account.sumOnBalance();
+    limit() = account.limit();
+    isBlocked() = account.isBlocked();
+    expiryDate() = account.expiryDate();
+}
 void UniversalAccount::putMoney(double amount) {
        _sumOnBalance += amount;
 }
