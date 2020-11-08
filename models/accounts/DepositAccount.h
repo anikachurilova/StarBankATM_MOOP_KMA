@@ -8,7 +8,7 @@ using namespace std;
 class DepositAccount : public Account{
 private:
     size_t _depositTerm;
-    string _depositExpiryDate;//now+term в конструкторе
+    string _depositExpiryDate;
     size_t _depositPercentage;
 public:
     DepositAccount(){}

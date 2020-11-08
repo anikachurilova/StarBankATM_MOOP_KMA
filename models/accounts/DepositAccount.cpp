@@ -63,7 +63,7 @@ double DepositAccount::chargePercentageOfCost(){
     return (sumOnBalance() * depositPercentage()) / 100;
 }
 
-void DepositAccount::close(){ //+ транзекшн с этого на юниверсал !!!!!!!!!!!!!!!!!!! транзекшн(самон беленс + процент)
+void DepositAccount::close(){
     _depositTerm = 0;
     _depositPercentage = 0;
     _depositExpiryDate = "";
@@ -82,6 +82,6 @@ void DepositAccount::openNew(size_t depositTerm, size_t depositPercentage) {
 ostream& operator<<(ostream& os, const DepositAccount& acc){
     os << "userID: " << acc.userId() << ", cardNumber: " << acc.cardNumber() << ", PIN: " << acc.pin() << "sumOnBalance: " <<", CVV: " << acc.cvvNumber() <<
        acc.sumOnBalance()<< ", limit: " << acc.limit() << ", isBlocked? : " << acc.isBlocked() << ", ExpDate: " << acc.expiryDate() <<
-       ", depositExpiryDate: "<< acc.depositExpiryDate() << ", depositTerm: " << acc.depositTerm()<< ", depositPercentage: " << acc.depositPercentage() << endl;
+       ", depositExpiryDate: "<< acc.depositExpiryDate() << ", depositTerm: " << acc.depositTerm()<< ", depositPercentage: " << acc.depositPercentage() <<"%"<< endl;
     return os;
 }

@@ -1,13 +1,5 @@
-//
-// Created by Valerie Luniakina on 08.11.2020.
-//
-
 #ifndef STARBANKATM_MOOP_KMA_USERSERVICE_H
 #define STARBANKATM_MOOP_KMA_USERSERVICE_H
-//
-// Created by Valerie Luniakina on 07.11.2020.
-//
-
 #include <cstdio>
 #include <sqlite3.h>
 #include <vector>
@@ -22,35 +14,11 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
 }
 
 void createUser(size_t iduser, string firstname, string lastname, string middlename){
-//    sqlite3 *db;
-//    char *zErrMsg = 0;
-//    int rc;
-//    char *sql;
-//    const char* data = "Callback function called";
-//    sqlite3_stmt *stmt = NULL;
-//
-//    /* Open database */
-//    rc = sqlite3_open("ATM.db", &db);
-//
-//    if( rc ) {
-//        fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
-//        //  return(0);
-//    } else {
-//        fprintf(stdout, "Opened database successfully\n");
-//    }
-//
-//    sql = "INSERT INTO USER (id_user,first_name,last_name,middle_name) "  \
-//         "VALUES (" << to_string(id_user) << ", ?, 'last_name', 'middle_name'); " ;
-
-
     sqlite3* DB;
     char* messaggeError;
     int exit = sqlite3_open("ATM.db", &DB);
-   // string query = "SELECT * FROM PERSON;";
 
     cout << "STATE OF TABLE BEFORE INSERT" << endl;
-
- //   sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
 
     string sql("INSERT INTO `USER` (`id_user`,`first_name`,`last_name`,`middle_name`)"
                " VALUES(" + to_string(iduser) + ", '" + firstname + "', '" + lastname + "', '" + middlename + "');"
@@ -105,7 +73,6 @@ User selectUserById(size_t id){
 
     try{ for(int i = 0;i<result.size();i++){
             if(stoi(result[0][i]) == id){
-               // cout << stoi(result[0][i]) << endl;
                 sqlite3_finalize(stmt);
                 sqlite3_close(db);
                 return User(id,result[1][i], result[2][i], result[3][i]);
@@ -153,8 +120,6 @@ User selectUserByCard(string card){
     try{ for(int i = 0;i<result.size();i++){
             if(result[0][i] == card){
                 userId = stoi(result[1][i]);
-               // cout << stoi(result[0][i]) << endl;
-                //return User(id,result[1][i], result[2][i], result[3][i]);
             }
         }} catch (exception e) {
     }
@@ -192,8 +157,6 @@ User selectUserByCard(string card){
     try{ for(int i = 0;i<result1.size();i++){
             if(result1[0][i] == card){
                 userId = stoi(result[1][i]);
-                // cout << stoi(result[0][i]) << endl;
-                //return User(id,result[1][i], result[2][i], result[3][i]);
             }
         }} catch (exception e) {
     }
