@@ -1,3 +1,3 @@
-/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir
+C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir
+C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/rebuild_cache.dir

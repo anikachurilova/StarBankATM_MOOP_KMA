@@ -1,14 +1,18 @@
 
 #include <iostream>
 using namespace std;
-
-#include "Accounts/Account.h"
+#include "models/accounts/Account.h"
+#include "models/accounts/CreditAccount.h"
+#include "models/accounts/UniversalAccount.h"
+#include "models/accounts/DepositAccount.h"
 
 class ATM;
 class SessionManager
 {
 private:
-    Account* _account;
+    CreditAccount* _creditAccount;
+    UniversalAccount* _universalAccount;
+    DepositAccount* _depositAccount;
     ATM& _atm;
     int _activeOperation;
     bool _secure = true;
@@ -22,12 +26,20 @@ public:
     }
     SessionManager(ATM&);
     ~SessionManager() {}
-
-    const Account getAccount() {
-        return *_account;
+    void makeOperation(Account& );
+    const CreditAccount getCreditAccount() {
+        return *_creditAccount;
+    }
+    const DepositAccount getDepositAccount() {
+        return *_depositAccount;
+    }
+    const UniversalAccount getUniversalAccount() {
+        return *_universalAccount;
     }
 
-    void setActiveAccount( Account&);
+    void setActiveDepositAccount(DepositAccount&);
+    void setActiveCreditAccount(CreditAccount&);
+    void setActiveUniversalAccount(UniversalAccount&);
     void startSession();
     void closeSession();
 

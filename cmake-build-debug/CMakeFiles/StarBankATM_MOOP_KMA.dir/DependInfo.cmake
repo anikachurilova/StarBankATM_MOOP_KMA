@@ -4,22 +4,22 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/ATM.cpp" "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/ATM.cpp.o"
-  "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/CardScanner.cpp" "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/CardScanner.cpp.o"
-  "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/CashDispencer.cpp" "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/CashDispencer.cpp.o"
-  "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/Main.cpp" "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/Main.cpp.o"
-  "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/SessionManager.cpp" "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/SessionManager.cpp.o"
-  "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/Storage.cpp" "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/Storage.cpp.o"
-  "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/Transaction.cpp" "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/Transaction.cpp.o"
-  "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/User.cpp" "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/User.cpp.o"
-  "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/UserOld.cpp" "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/UserOld.cpp.o"
-  "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/Account.cpp" "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/accounts/Account.cpp.o"
-  "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/AccountOld.cpp" "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/accounts/AccountOld.cpp.o"
-  "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/CreditAccount.cpp" "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/accounts/CreditAccount.cpp.o"
-  "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/DepositAccount.cpp" "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/accounts/DepositAccount.cpp.o"
-  "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/UniversalAccount.cpp" "/Users/valerie/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/accounts/UniversalAccount.cpp.o"
+  "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/ATM.cpp" "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/ATM.cpp.obj"
+  "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/CardScanner.cpp" "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/CardScanner.cpp.obj"
+  "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/CashDispencer.cpp" "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/CashDispencer.cpp.obj"
+  "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/SessionManager.cpp" "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/SessionManager.cpp.obj"
+  "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/Storage.cpp" "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/Storage.cpp.obj"
+  "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/main.cpp" "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/main.cpp.obj"
+  "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/Transaction.cpp" "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/Transaction.cpp.obj"
+  "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/User.cpp" "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/User.cpp.obj"
+  "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/UserOld.cpp" "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/UserOld.cpp.obj"
+  "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/Account.cpp" "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/accounts/Account.cpp.obj"
+  "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/AccountOld.cpp" "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/accounts/AccountOld.cpp.obj"
+  "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/CreditAccount.cpp" "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/accounts/CreditAccount.cpp.obj"
+  "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/DepositAccount.cpp" "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/accounts/DepositAccount.cpp.obj"
+  "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/models/accounts/UniversalAccount.cpp" "C:/Users/Anika/CLionProjects/StarBankATM_MOOP_KMA/cmake-build-debug/CMakeFiles/StarBankATM_MOOP_KMA.dir/models/accounts/UniversalAccount.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

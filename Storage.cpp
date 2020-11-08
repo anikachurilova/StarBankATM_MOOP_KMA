@@ -1,14 +1,14 @@
-//#include "Storage.h"
-//
-//
-//void Storage::removeAccount(const string& card) {
-//    _accounts.erase(card);
-//}
-//void Storage::addAccount(const Account& a) {
-//    _accounts.insert({ a.getCardNumber(), a });
-//}
-//
-//Account& Storage::getAccount(const string& card) {
+#include "Storage.h"
+
+
+void Storage::removeAccount(const string& card) {
+    //_accounts.erase(card);
+}
+void Storage::addAccount(const Account& a) {
+    //_accounts.insert({ a.cardNumber(), a });
+}
+
+Account& Storage::getAccount(const string& card) {
 //    Account* _account = 0;
 //    map<string, Account> ::iterator acc;
 //    for (acc = _accounts.begin(); acc != _accounts.end(); acc++) {
@@ -19,5 +19,5 @@
 //    }
 //    if (!_account)
 //        throw string("Not found account with number: ") + card;
-//}
-//
+}
+
