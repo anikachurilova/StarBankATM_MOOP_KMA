@@ -32,7 +32,7 @@ public:
     string& cvvNumber();
     double& sumOnBalance();
     size_t& limit();
-    bool isBlocked();
+    bool& isBlocked();
 
     const size_t& userId() const;
     const string& cardNumber() const;
@@ -41,7 +41,7 @@ public:
     const string& cvvNumber() const;
     const double& sumOnBalance() const;
     const size_t& limit() const;
-    const bool isBlocked() const;
+    const bool& isBlocked() const;
 
     virtual void putMoney(double amount) = 0;
     //void blockCard(); // sho delaem tyt?

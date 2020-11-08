@@ -21,6 +21,14 @@ DepositAccount::~DepositAccount() {
 
 }
 DepositAccount& DepositAccount::operator=(const DepositAccount& account){
+    userId() = account.userId();
+    cardNumber() = account.cardNumber();
+    pin() = account.pin();
+    cvvNumber() = account.cvvNumber();
+    sumOnBalance() = account.sumOnBalance();
+    limit() = account.limit();
+    expiryDate() =  account.expiryDate();
+    isBlocked() =  account.isBlocked();
     _depositTerm = account._depositTerm;
     _depositPercentage = account._depositPercentage;
     _depositExpiryDate = account._depositExpiryDate;

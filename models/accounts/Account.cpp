@@ -53,7 +53,7 @@ size_t&  Account::limit(){
     return _limit;
 }
 
-bool Account::isBlocked(){
+bool& Account::isBlocked(){
     return _isBocked;
 }
 
@@ -81,7 +81,7 @@ const size_t&  Account::limit() const{
     return _limit;
 }
 
-const bool Account::isBlocked() const{
+const bool& Account::isBlocked() const{
     return _isBocked;
 }
 
