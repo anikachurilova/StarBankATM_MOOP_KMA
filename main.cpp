@@ -315,6 +315,7 @@ int main(int argc, char **argv)
                         cout << "ENTER AMOUNT OF MONEY TO PUT: " << endl;
                         int sumPut;
                         cin >> sumPut;
+
                         putMoneyOnDepositAccount(sumPut,depositAccount);
                         break;
                     case 2:
@@ -390,6 +391,7 @@ int main(int argc, char **argv)
                             cout << "THE AMOUNT IS MORE THAN YOUR LIMIT"<< endl;
                             cout << "ENTER ANOTHER AMOUNT OR CHANGE YOUR LIMIT" << endl;
                         }
+                        break;
                     case 3:
                         cout << "YOUR BALANCE: " << universalAccount.sumOnBalance() <<endl;
                         break;
@@ -411,7 +413,7 @@ int main(int argc, char **argv)
                         string cardPut;
                         cin >> cardPut;
                         makeTransactionFromUniversalToAnother(universalAccount, cardPut, sumPut2);
-                    }
+                        break;}
                     case 7:
                         cout << "ENTER SUM TO PUT: " << endl;
                         int sumPut3;
@@ -423,6 +425,7 @@ int main(int argc, char **argv)
                         cin >> acctype;
                            if(acctype == '1') makeTransactionFromUniversalDeposit(universalAccount,depositAccount,sumPut3);
                            else if(acctype == '2')  makeTransactionFromUniversalToCredit(universalAccount,creditAccount,sumPut3);
+                           break;
                     case 8:
                         getAllTransactionsByCard(universalAccount.cardNumber());
                         break;
@@ -490,6 +493,7 @@ int main(int argc, char **argv)
                         string cardPut;
                         cin >> cardPut;
                         makeTransactionFromCreditToAnother(creditAccount, cardPut, sumPut2);
+                        break;
                     }
                     case 7:
                         cout << "ENTER SUM TO PUT: " << endl;
@@ -497,11 +501,12 @@ int main(int argc, char **argv)
                         cin >> sumPut3;
                         cout << "WHICH ACCOUNT DO YOU WANT TO PUT MONEY TO? " << endl;
                         cout << "1 - DEPOSIT ACCOUNT" << endl;
-                        cout << "2 - CREDIT ACCOUNT" << endl;
+                        cout << "2 - UNIVERSAL ACCOUNT" << endl;
                         int acctype;
                         cin >> acctype;
                         if(acctype == '1') makeTransactionFromCreditToDeposit(creditAccount,depositAccount,sumPut3);
                         else if(acctype == '2')  makeTransactionFromCreditToUniversal(creditAccount,universalAccount,sumPut3);
+                        break;
                     case 8:
                         getAllTransactionsByCard(creditAccount.cardNumber());
                         break;

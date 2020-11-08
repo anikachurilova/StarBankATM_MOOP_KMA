@@ -14,15 +14,14 @@
 #include <sqlite3.h>
 #include <vector>
 
-static int callbackT(void *NotUsed, int argc, char **argv, char **azColName) {
-    int i;
-    for(i = 0; i<argc; i++) {
-
-        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-    }
-    printf("\n");
-    return 0;
-}
+//static int callbackT(void *NotUsed, int argc, char **argv, char **azColName) {
+//    int i;
+//    for(i = 0; i<argc; i++) {
+//        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+//    }
+//    printf("\n");
+//    return 0;
+//}
 
 void createTransaction(double transactionSum, string cardSourceNumber, string cardDestinationNumber){
 
@@ -40,7 +39,7 @@ void createTransaction(double transactionSum, string cardSourceNumber, string ca
 
     string transactionDateTime = transaction.transactionDateTime();
 
-    string sql("INSERT INTO TRANSACTION (transaction_sum,transaction_date_time,source_account_number, destination_account_number)"
+    string sql("INSERT INTO `TRANSACTION` (transaction_sum,transaction_date_time,source_account_number, destination_account_number)"
                " VALUES("  + to_string(transactionSum) + ", '" + transactionDateTime + "', '" + cardSourceNumber + "', '"+ cardDestinationNumber + "');"
     );
 
@@ -58,7 +57,7 @@ void createTransaction(double transactionSum, string cardSourceNumber, string ca
     cout << "STATE OF TABLE AFTER INSERT" << endl;
 
 
-    sqlite3_exec(DB, query.c_str(), callbackT, NULL, NULL);
+    sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
 
     sqlite3_close(DB);
 }
@@ -122,7 +121,7 @@ void getAllTransactions(){
 
     cout << "STATE OF TABLE AFTER INSERT" << endl;
 
-    sqlite3_exec(DB, sql.c_str(), callbackT, NULL, NULL);
+    sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
     sqlite3_close(DB);
 }
@@ -150,7 +149,7 @@ void getAllTransactionsByCard(string card){
 
     cout << "STATE OF TABLE AFTER INSERT" << endl;
 
-    sqlite3_exec(DB, sql.c_str(), callbackT, NULL, NULL);
+    sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
     sqlite3_close(DB);
 }
