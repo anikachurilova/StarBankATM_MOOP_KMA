@@ -2,9 +2,9 @@
 #include "DepositAccount.h"
 
 
-DepositAccount::DepositAccount(size_t userId, size_t cardNumber, size_t pin, size_t cvv, double sumOnBalance,
+DepositAccount::DepositAccount(size_t userId, string cardNumber, string pin, string cvv, double sumOnBalance,
                                size_t limit, string expiryDate, bool isBlocked,size_t depositTerm, size_t depositPercentage,
-                                string depositExpiryDate): Account(userId,cardNumber,pin,cvv,sumOnBalance,limit,expiryDate,isBlocked){
+                                string depositExpiryDate): Account(userId,cardNumber,pin,cvv,sumOnBalance,limit,isBlocked,expiryDate){
     _depositTerm =  depositTerm;
     _depositPercentage = depositPercentage;
      if(depositExpiryDate == ""){

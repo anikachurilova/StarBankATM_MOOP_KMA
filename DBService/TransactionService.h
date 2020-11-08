@@ -8,21 +8,25 @@
 
 
 #include "../models/Transaction.h"
+#include "DBService"
+#include ""
 #include <cstdio>
 #include <sqlite3.h>
 #include <vector>
 
-//static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
-//    int i;
-//    for(i = 0; i<argc; i++) {
-//        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-//    }
-//    printf("\n");
-//    return 0;
-//}
+static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
+    int i;
+    for(i = 0; i<argc; i++) {
+        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+    }
+    printf("\n");
+    return 0;
+}
 
-void createTransaction(double transactionSum, string cardSourceNumber, string cardDestinationNumber, string transactionDateTime, size_t transactionId ){
-    Transaction transaction(transactionSum,cardSourceNumber,cardDestinationNumber,transactionDateTime,0);
+void createTransaction(double transactionSum, string cardSourceNumber, string cardDestinationNumber){
+
+
+    Transaction transaction(transactionSum,cardSourceNumber,cardDestinationNumber,"",0);
 
     sqlite3* DB;
     char* messaggeError;
@@ -33,11 +37,12 @@ void createTransaction(double transactionSum, string cardSourceNumber, string ca
 
     sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
 
-    transactionDateTime = transaction.transactionDateTime();
+    string transactionDateTime = transaction.transactionDateTime();
 
-    string sql("INSERT INTO `TRANSACTION` (`transaction_sum`,`transaction_date_time`,`source_account_number`, `destination_account_number`)"
+    string sql("INSERT INTO TRANSACTION (transaction_sum,transaction_date_time,source_account_number, destination_account_number)"
                " VALUES("  + to_string(transactionSum) + ", '" + transactionDateTime + "', '" + cardSourceNumber + "', '"+ cardDestinationNumber + "');"
     );
+
 
 
     exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &messaggeError);
@@ -51,11 +56,46 @@ void createTransaction(double transactionSum, string cardSourceNumber, string ca
 
     cout << "STATE OF TABLE AFTER INSERT" << endl;
 
+
     sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
 
     sqlite3_close(DB);
 }
 
+
+void makeTransactionFromCreditToAnother(CreditAccount& ca, string cardDest, size_t amount){
+    createTransaction(amount,ca.cardNumber(),cardDest);
+    ca.withdrawMoney(amount);
+}
+
+void makeTransactionFromUniversalToAnother(UniversalAccount& ua, string cardDest, size_t amount){
+    createTransaction(amount,ua.cardNumber(),cardDest);
+    ua.withdrawMoney(amount);
+}
+
+void makeTransactionFromCreditToUniversal(CreditAccount& ca, UniversalAccount& ua, size_t amount){
+    createTransaction(amount,ca.cardNumber(),ua.cardNumber());
+    ca.withdrawMoney(amount);
+    ua.putMoney(amount);
+}
+
+void makeTransactionFromCreditToDeposit(CreditAccount& ca, DepositAccount& da, size_t amount){
+    createTransaction(amount,ca.cardNumber(),da.cardNumber());
+    ca.withdrawMoney(amount);
+    da.putMoney(amount);
+}
+
+void makeTransactionFromUniversalToCredit(UniversalAccount& ua, CreditAccount& ca, size_t amount){
+    createTransaction(amount,ua.cardNumber(),ca.cardNumber());
+    ca.putMoney(amount);
+    ua.withdrawMoney(amount);
+}
+
+void makeTransactionFromUniversalDeposit(UniversalAccount& ua, DepositAccount& da, size_t amount){
+    createTransaction(amount,ua.cardNumber(),da.cardNumber());
+    da.putMoney(amount);
+    ua.withdrawMoney(amount);
+}
 
 void getAllTransactions(){
     sqlite3* DB;
@@ -66,7 +106,7 @@ void getAllTransactions(){
 
 
 
-    string sql("SELECT * FROM `TRANSACTION`;"
+    string sql("SELECT * FROM TRANSACTION;"
     );
 
 
@@ -95,9 +135,8 @@ void getAllTransactionsByCard(string card){
 
 
 
-    string sql("SELECT * FROM `TRANSACTION` WHERE source_account_number = '" + card + "' OR destination_account_number = '" + card +"';"
+    string sql("SELECT * FROM TRANSACTION WHERE source_account_number = '" + card + "' OR destination_account_number = '" + card +"';"
     );
-
 
     exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &messaggeError);
     if (exit != SQLITE_OK) {

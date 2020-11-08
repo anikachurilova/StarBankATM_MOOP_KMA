@@ -1,9 +1,9 @@
 #include <time.h>
 #include "CreditAccount.h"
 
-CreditAccount::CreditAccount(size_t creditTerm, double creditDept, size_t userId, size_t cardNumber, size_t pin,
-                             size_t cvv, double sumOnBalance, size_t limit, bool isBlocked, string expiryDate,
-                             string creditExpiryDate) : Account(userId,cardNumber,pin,cvv,sumOnBalance,limit,expiryDate,isBlocked),
+CreditAccount::CreditAccount(size_t creditTerm, double creditDept, size_t userId, string cardNumber, string pin,
+                             string cvv, double sumOnBalance, size_t limit, bool isBlocked, string expiryDate,
+                             string creditExpiryDate) : Account(userId,cardNumber,pin,cvv,sumOnBalance,limit,isBlocked,expiryDate),
                              _creditDept(creditDept), _creditTerm(creditTerm)
                              {
     if(creditExpiryDate.empty()){

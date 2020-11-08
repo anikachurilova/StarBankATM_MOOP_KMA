@@ -60,7 +60,7 @@ void createUser(size_t iduser, string firstname, string lastname, string middlen
     if (exit != SQLITE_OK) {
         std::cerr << "Error Insert" << std::endl;
         sqlite3_free(messaggeError);
-        printf(messaggeError);
+//        printf(messaggeError);
     }
     else
         std::cout << "Records created Successfully!" << std::endl;

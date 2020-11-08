@@ -20,10 +20,10 @@ Account::~Account() {}
 size_t&  Account::userId(){
     return _userId;
 }
-size_t&  Account::cardNumber(){
+string&  Account::cardNumber(){
     return _cardNumber;
 }
-size_t&  Account::pin(){
+string&  Account::pin(){
     return _pin;
 }
 
@@ -31,7 +31,7 @@ string& Account::expiryDate(){
     return _expiryDate;
 }
 
-size_t&  Account::cvvNumber(){
+string&  Account::cvvNumber(){
     return _cvvNumber;
 }
 double&  Account::sumOnBalance(){
@@ -48,10 +48,10 @@ bool Account::isBlocked(){
 const size_t&  Account::userId() const{
     return _userId;
 }
-const size_t&  Account::cardNumber() const{
+const string&  Account::cardNumber() const{
     return _cardNumber;
 }
-const size_t&  Account::pin() const{
+const string&  Account::pin() const{
     return _pin;
 }
 
@@ -59,7 +59,7 @@ const string& Account::expiryDate() const{
     return _expiryDate;
 }
 
-const size_t&  Account::cvvNumber() const{
+const string&  Account::cvvNumber() const{
     return _cvvNumber;
 }
 const double&  Account::sumOnBalance() const{

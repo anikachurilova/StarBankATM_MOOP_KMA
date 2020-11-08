@@ -8,10 +8,10 @@ using namespace std;
 class Account{
 private:
     size_t _userId; //&||*????
-    size_t _cardNumber;
-    size_t _pin;
+    string _cardNumber;
+    string _pin;
     string _expiryDate; // maybe just date without time? find how to compare DateTime with Date
-    size_t _cvvNumber;
+    string _cvvNumber;
     size_t _limit;
     bool _isBocked;
 protected:
@@ -26,19 +26,19 @@ public:
     ~Account();
 
     size_t& userId();
-    size_t& cardNumber();
-    size_t& pin();
+    string& cardNumber();
+    string& pin();
     string& expiryDate();//????
-    size_t& cvvNumber();
+    string& cvvNumber();
     double& sumOnBalance();
     size_t& limit();
     bool isBlocked();
 
     const size_t& userId() const;
-    const size_t& cardNumber() const;
-    const size_t& pin() const;
+    const string& cardNumber() const;
+    const string& pin() const;
     const string& expiryDate() const;//????
-    const size_t& cvvNumber() const;
+    const string& cvvNumber() const;
     const double& sumOnBalance() const;
     const size_t& limit() const;
     const bool isBlocked() const;
