@@ -1,7 +1,6 @@
 
 #include <iostream>
 #include <time.h>
-#include "ATM.h"
 #include "models/Transaction.h"
 #include "models/accounts/CreditAccount.h"
 #include "models/accounts/DepositAccount.h"
@@ -285,10 +284,8 @@ int main(int argc, char **argv)
                 cout << endl;
             }
         }
-
         default:
             break;
-
     }
         return 0;
 }
