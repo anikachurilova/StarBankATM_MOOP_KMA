@@ -15,9 +15,16 @@ private:
     string _middleName;
 
 public:
+    User(){}
     User(size_t id, string firstName,  string lastName, string middleName);
     ~User();
-
+    User& operator=(const User& u){
+        _id = u.id();
+        _middleName = u.middleName();
+        _firstName = u.firstName();
+        _lastName = u.lastName();
+        return *this;
+    }
 
     size_t& id();
     string& firstName();
