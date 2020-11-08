@@ -70,8 +70,7 @@ int main(int argc, char **argv)
                 cout << "5 - SHOW DEPOSIT TERM" << endl;
                 cout << "6 - SHOW DEPOSIT PERCENTAGE" << endl;
                 cout << "7 - SHOW DEPOSIT EXPIRY DATE" << endl;
-                cout << "8 - SEE ALL TRANSACTIONS" << endl;
-                cout << "9 - EXIT" << endl;
+                cout << "8 - EXIT" << endl;
                 int choosen;
                 cin >> choosen;
                 switch (choosen) {
@@ -105,9 +104,6 @@ int main(int argc, char **argv)
                         cout << "YOUR DEPOSIT EXPIRY DATE: " << depositAccount.depositExpiryDate() << endl;
                         break;
                     case 8:
-                        getAllTransactionsByCard(depositAccount.cardNumber());
-                        break;
-                    case 9:
                         isWorking = false;
                         break;
                     default:
@@ -134,8 +130,7 @@ int main(int argc, char **argv)
                 cout << "5 - CHANGE LIMIT" << endl;
                 cout << "6 - PUT MONEY TO ANOTHER ACCOUNT" << endl;
                 cout << "7 - PUT MONEY TO MY ACCOUNT" << endl;
-                cout << "8 - SEE ALL TRANSACTIONS" << endl;
-                cout << "9 - EXIT" << endl;
+                cout << "8 - EXIT" << endl;
                 int choosen;
                 cin >> choosen;
                 switch (choosen) {
@@ -191,9 +186,6 @@ int main(int argc, char **argv)
                            else if(acctype == '2')  makeTransactionFromUniversalToCredit(universalAccount,creditAccount,sumPut3);
                            break;
                     case 8:
-                        getAllTransactionsByCard(universalAccount.cardNumber());
-                        break;
-                    case 9:
                         isWorking = false;
                         break;
                     default:
@@ -220,8 +212,7 @@ int main(int argc, char **argv)
                 cout << "5 - CHANGE LIMIT" << endl;
                 cout << "6 - PUT MONEY TO ANOTHER ACCOUNT" << endl;
                 cout << "7 - PUT MONEY TO MY ACCOUNT" << endl;
-                cout << "8 - SEE ALL TRANSACTIONS" << endl;
-                cout << "9 - EXIT" << endl;
+                cout << "8 - EXIT" << endl;
                 int choosen;
                 cin >> choosen;
                 switch (choosen) {
@@ -272,9 +263,6 @@ int main(int argc, char **argv)
                         else if(acctype == '2')  makeTransactionFromCreditToUniversal(creditAccount,universalAccount,sumPut3);
                         break;
                     case 8:
-                        getAllTransactionsByCard(creditAccount.cardNumber());
-                        break;
-                    case 9:
                         isWorking = false;
                         break;
                     default:
