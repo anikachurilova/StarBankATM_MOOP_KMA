@@ -33,7 +33,7 @@ void createTransaction(double transactionSum, string cardSourceNumber, string ca
     int exit = sqlite3_open("ATM.db", &DB);
     string query = "SELECT * FROM PERSON;";
 
-    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+  //  cout << "STATE OF TABLE BEFORE INSERT" << endl;
 
     sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
 
@@ -51,10 +51,10 @@ void createTransaction(double transactionSum, string cardSourceNumber, string ca
         sqlite3_free(messaggeError);
         printf(messaggeError);
     }
-    else
-        std::cout << "Records created Successfully!" << std::endl;
+  //  else
+        //std::cout << "Records created Successfully!" << std::endl;
 
-    cout << "STATE OF TABLE AFTER INSERT" << endl;
+  //  cout << "STATE OF TABLE AFTER INSERT" << endl;
 
 
     sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
@@ -102,11 +102,11 @@ void getAllTransactions(){
     char* messaggeError;
     int exit = sqlite3_open("ATM.db", &DB);
 
-    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+   // cout << "STATE OF TABLE BEFORE INSERT" << endl;
 
 
 
-    string sql("SELECT * FROM TRANSACTION;"
+    string sql("SELECT * FROM `TRANSACTION`;"
     );
 
 
@@ -116,10 +116,10 @@ void getAllTransactions(){
         sqlite3_free(messaggeError);
         printf(messaggeError);
     }
-    else
-        std::cout << "Records created Successfully!" << std::endl;
+   // else
+      //  std::cout << "Records created Successfully!" << std::endl;
 
-    cout << "STATE OF TABLE AFTER INSERT" << endl;
+   // cout << "STATE OF TABLE AFTER INSERT" << endl;
 
     sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
@@ -131,7 +131,7 @@ void getAllTransactionsByCard(string card){
     char* messaggeError;
     int exit = sqlite3_open("ATM.db", &DB);
 
-    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+   // cout << "STATE OF TABLE BEFORE INSERT" << endl;
 
 
 
@@ -144,10 +144,10 @@ void getAllTransactionsByCard(string card){
         sqlite3_free(messaggeError);
         printf(messaggeError);
     }
-    else
-        std::cout << "Records created Successfully!" << std::endl;
+  //  else
+     //e   std::cout << "Records created Successfully!" << std::endl;
 
-    cout << "STATE OF TABLE AFTER INSERT" << endl;
+  //  cout << "STATE OF TABLE AFTER INSERT" << endl;
 
     sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 

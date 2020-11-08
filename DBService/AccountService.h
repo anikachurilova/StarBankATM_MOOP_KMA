@@ -23,7 +23,7 @@ UniversalAccount createUniversalAccount(size_t userId, string cardNumber, string
     char* messaggeError;
     int exit = sqlite3_open("ATM.db", &DB);
 
-    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+   // cout << "STATE OF TABLE BEFORE INSERT" << endl;
 
 
     UniversalAccount ua(userId,cardNumber,pin,cvv,sumOnBalance,limit,isBlocked,expiryDate);
@@ -39,10 +39,10 @@ UniversalAccount createUniversalAccount(size_t userId, string cardNumber, string
         sqlite3_free(messaggeError);
         printf(messaggeError);
     }
-    else
-        std::cout << "Records created Successfully!" << std::endl;
+   // else
+     //   std::cout << "Records created Successfully!" << std::endl;
 
-    cout << "STATE OF TABLE AFTER INSERT" << endl;
+   // cout << "STATE OF TABLE AFTER INSERT" << endl;
 
     sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
@@ -61,7 +61,7 @@ CreditAccount createCreditAccount(size_t creditTerm, double creditDept, size_t u
     char* messaggeError;
     int exit = sqlite3_open("ATM.db", &DB);
 
-    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+   // cout << "STATE OF TABLE BEFORE INSERT" << endl;
 
 
     CreditAccount ca(creditTerm,creditDept,userId,cardNumber,pin,cvv,sumOnBalance,limit,isBlocked,"");
@@ -79,10 +79,10 @@ CreditAccount createCreditAccount(size_t creditTerm, double creditDept, size_t u
         sqlite3_free(messaggeError);
         printf(messaggeError);
     }
-    else
-        std::cout << "Records created Successfully!" << std::endl;
+//    else
+//        std::cout << "Records created Successfully!" << std::endl;
 
-    cout << "STATE OF TABLE AFTER INSERT" << endl;
+   // cout << "STATE OF TABLE AFTER INSERT" << endl;
 
     sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
@@ -100,7 +100,7 @@ DepositAccount createDepositAccount(size_t userId, string cardNumber, string pin
     char* messaggeError;
     int exit = sqlite3_open("ATM.db", &DB);
 
-    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+    //cout << "STATE OF TABLE BEFORE INSERT" << endl;
     DepositAccount da(userId,cardNumber,pin,cvv,sumOnBalance,limit,"",false,depositTerm,depositPercentage,"");
     expiryDate = da.expiryDate();
     depositExpiryDate = da.depositExpiryDate();
@@ -116,10 +116,10 @@ DepositAccount createDepositAccount(size_t userId, string cardNumber, string pin
         sqlite3_free(messaggeError);
         printf(messaggeError);
     }
-    else
-        std::cout << "Records created Successfully!" << std::endl;
+//    else
+//        std::cout << "Records created Successfully!" << std::endl;
 
-    cout << "STATE OF TABLE AFTER INSERT" << endl;
+   // cout << "STATE OF TABLE AFTER INSERT" << endl;
 
     sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
@@ -409,7 +409,7 @@ void withdrawMoneyFromCreditAccount(size_t amount, CreditAccount& ca){
     char* messaggeError;
     int exit = sqlite3_open("ATM.db", &DB);
 
-    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+  //  cout << "STATE OF TABLE BEFORE INSERT" << endl;
 
     string card = ca.cardNumber();
     double sum = ca.sumOnBalance() - amount;
@@ -424,10 +424,10 @@ void withdrawMoneyFromCreditAccount(size_t amount, CreditAccount& ca){
         sqlite3_free(messaggeError);
         printf(messaggeError);
     }
-    else
-        std::cout << "Records created Successfully!" << std::endl;
-
-    cout << "STATE OF TABLE AFTER INSERT" << endl;
+//    else
+//        std::cout << "Records created Successfully!" << std::endl;
+//
+//    cout << "STATE OF TABLE AFTER INSERT" << endl;
 
     sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
@@ -441,7 +441,7 @@ void withdrawMoneyFromUniversalAccount(size_t amount, UniversalAccount& ua){
     char* messaggeError;
     int exit = sqlite3_open("ATM.db", &DB);
 
-    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+  //  cout << "STATE OF TABLE BEFORE INSERT" << endl;
 
     string card = ua.cardNumber();
     double sum = ua.sumOnBalance() - amount;
@@ -456,10 +456,10 @@ void withdrawMoneyFromUniversalAccount(size_t amount, UniversalAccount& ua){
         sqlite3_free(messaggeError);
         printf(messaggeError);
     }
-    else
-        std::cout << "Records created Successfully!" << std::endl;
-
-    cout << "STATE OF TABLE AFTER INSERT" << endl;
+//    else
+//        std::cout << "Records created Successfully!" << std::endl;
+//
+//    cout << "STATE OF TABLE AFTER INSERT" << endl;
 
     sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
@@ -472,7 +472,7 @@ void putMoneyOnCreditAccount(size_t amount, CreditAccount& ca){
     char* messaggeError;
     int exit = sqlite3_open("ATM.db", &DB);
 
-    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+ //   cout << "STATE OF TABLE BEFORE INSERT" << endl;
 
     string card = ca.cardNumber();
     double sum = ca.creditDept() - amount;
@@ -487,10 +487,10 @@ void putMoneyOnCreditAccount(size_t amount, CreditAccount& ca){
         sqlite3_free(messaggeError);
         printf(messaggeError);
     }
-    else
-        std::cout << "Records created Successfully!" << std::endl;
-
-    cout << "STATE OF TABLE AFTER INSERT" << endl;
+//    else
+//        std::cout << "Records created Successfully!" << std::endl;
+//
+//    cout << "STATE OF TABLE AFTER INSERT" << endl;
 
     sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
@@ -503,7 +503,7 @@ void putMoneyOnUniversalAccount(size_t amount, UniversalAccount& ua){
     char* messaggeError;
     int exit = sqlite3_open("ATM.db", &DB);
 
-    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+  //  cout << "STATE OF TABLE BEFORE INSERT" << endl;
     string card = ua.cardNumber();
     double sum = ua.sumOnBalance() + amount;
     ua.putMoney(amount);
@@ -517,10 +517,10 @@ void putMoneyOnUniversalAccount(size_t amount, UniversalAccount& ua){
         sqlite3_free(messaggeError);
         printf(messaggeError);
     }
-    else
-        std::cout << "Records created Successfully!" << std::endl;
-
-    cout << "STATE OF TABLE AFTER INSERT" << endl;
+//    else
+//        std::cout << "Records created Successfully!" << std::endl;
+//
+//    cout << "STATE OF TABLE AFTER INSERT" << endl;
 
     sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
@@ -532,7 +532,7 @@ void putMoneyOnDepositAccount(size_t amount, DepositAccount& da){
     char* messaggeError;
     int exit = sqlite3_open("ATM.db", &DB);
 
-    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+ //   cout << "STATE OF TABLE BEFORE INSERT" << endl;
 
     string card = da.cardNumber();
     double sum = da.sumOnBalance() + amount;
@@ -547,10 +547,10 @@ void putMoneyOnDepositAccount(size_t amount, DepositAccount& da){
         sqlite3_free(messaggeError);
         printf(messaggeError);
     }
-    else
-        std::cout << "Records created Successfully!" << std::endl;
-
-    cout << "STATE OF TABLE AFTER INSERT" << endl;
+//    else
+//        std::cout << "Records created Successfully!" << std::endl;
+//
+//    cout << "STATE OF TABLE AFTER INSERT" << endl;
 
     sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
