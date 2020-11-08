@@ -8,14 +8,14 @@
 #include <sqlite3.h>
 #include <vector>
 
-static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
-    int i;
-    for(i = 0; i<argc; i++) {
-        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-    }
-    printf("\n");
-    return 0;
-}
+//static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
+//    int i;
+//    for(i = 0; i<argc; i++) {
+//        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+//    }
+//    printf("\n");
+//    return 0;
+//}
 UniversalAccount createUniversalAccount(size_t userId, string cardNumber, string pin, string cvv, double sumOnBalance,
                                         size_t limit,string expiryDate,  bool isBlocked){
 
@@ -131,7 +131,6 @@ DepositAccount createDepositAccount(size_t userId, string cardNumber, string pin
 
 UniversalAccount getUniversalAccountByUserId(size_t id){
 
-    UniversalAccount ua();
     sqlite3 *db;
     sqlite3_stmt * stmt;
 
@@ -162,7 +161,9 @@ UniversalAccount getUniversalAccountByUserId(size_t id){
     try{ for(int i = 0;i<result.size();i++){
             if(stoi(result[0][5]) == id){
                 cout << stoi(result[0][i]) << endl;
-                ua = UniversalAccount(stoi(result[5][i]), result[0][i],result[1][i], result[3][i], stoi(result[4][i]), 10000,false, result[2][i]);
+                return UniversalAccount(stoi(result[5][i]), result[0][i],result[1][i], result[3][i], stoi(result[4][i]), 10000,false, result[2][i]);
+                sqlite3_finalize(stmt);
+                sqlite3_close(db);
             }
         }} catch (exception e) {
     }
@@ -171,13 +172,13 @@ UniversalAccount getUniversalAccountByUserId(size_t id){
     sqlite3_finalize(stmt);
     sqlite3_close(db);
 
-    return ua;
+    return UniversalAccount();
 }
 
 
-UniversalAccount getCreditAccountByUserId(size_t id){
+CreditAccount getCreditAccountByUserId(size_t id){
 
-    CreditAccount ca();
+
     sqlite3 *db;
     sqlite3_stmt * stmt;
 
@@ -208,18 +209,19 @@ UniversalAccount getCreditAccountByUserId(size_t id){
     try{ for(int i = 0;i<result.size();i++){
             if(stoi(result[0][8]) == id){
                 cout << stoi(result[0][i]) << endl;
-                ca = CreditAccount(stoi(result[5][i]),stoi(result[7][i]),id,result[0][i],result[1][i],result[3][i],stoi(result[4][i]),10000,false,result[2][i],result[6][i]);
+                return CreditAccount(stoi(result[5][i]),stoi(result[7][i]),id,result[0][i],result[1][i],result[3][i],stoi(result[4][i]),10000,false,result[2][i],result[6][i]);
+                sqlite3_finalize(stmt);
+                sqlite3_close(db);
             }
         }} catch (exception e) {
     }
 
-
     sqlite3_finalize(stmt);
     sqlite3_close(db);
-    return ca;
+    return CreditAccount();
 }
 
-UniversalAccount getDepositAccountByUserId(size_t id){
+DepositAccount getDepositAccountByUserId(size_t id){
 
     DepositAccount da();
     sqlite3 *db;
@@ -251,15 +253,17 @@ UniversalAccount getDepositAccountByUserId(size_t id){
     try{ for(int i = 0;i<result.size();i++){
             if(stoi(result[0][8]) == id){
                 cout << stoi(result[0][i]) << endl;
-                da = DepositAccount(id,result[0][i],result[1][i],result[3][i],stoi(result[4][i]),10000,result[2][i],false,stoi(result[5][i]),stoi(result[7][i]),result[8][i]);
+                return DepositAccount(id,result[0][i],result[1][i],result[3][i],stoi(result[4][i]),10000,result[2][i],false,stoi(result[5][i]),stoi(result[7][i]),result[8][i]);
+                sqlite3_finalize(stmt);
+                sqlite3_close(db);
             }
         }} catch (exception e) {
     }
 
-
     sqlite3_finalize(stmt);
     sqlite3_close(db);
-    return da;
+
+    return DepositAccount();
 }
 
 

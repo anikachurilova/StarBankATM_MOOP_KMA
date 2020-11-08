@@ -8,20 +8,20 @@
 
 
 #include "../models/Transaction.h"
-#include "DBService"
-#include ""
+
+
 #include <cstdio>
 #include <sqlite3.h>
 #include <vector>
 
-static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
-    int i;
-    for(i = 0; i<argc; i++) {
-        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-    }
-    printf("\n");
-    return 0;
-}
+//static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
+//    int i;
+//    for(i = 0; i<argc; i++) {
+//        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+//    }
+//    printf("\n");
+//    return 0;
+//}
 
 void createTransaction(double transactionSum, string cardSourceNumber, string cardDestinationNumber){
 

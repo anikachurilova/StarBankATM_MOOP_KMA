@@ -13,6 +13,5 @@ add_executable(StarBankATM_MOOP_KMA Main.cpp models/accounts/AccountOld.h ATM.h 
 
 
 
-target_link_libraries(StarBankATM_MOOP_KMA LINK_PUBLIC sqlite3)
 add_compile_options(-l sqlite3)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -lsqlite3")
