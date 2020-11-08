@@ -1,5 +1,13 @@
+//
+// Created by Valerie Luniakina on 08.11.2020.
+//
+
 #ifndef STARBANKATM_MOOP_KMA_USERSERVICE_H
 #define STARBANKATM_MOOP_KMA_USERSERVICE_H
+//
+// Created by Valerie Luniakina on 07.11.2020.
+//
+
 #include <cstdio>
 #include <sqlite3.h>
 #include <vector>
@@ -14,11 +22,15 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName) {
 }
 
 void createUser(size_t iduser, string firstname, string lastname, string middlename){
+
     sqlite3* DB;
     char* messaggeError;
     int exit = sqlite3_open("ATM.db", &DB);
+   // string query = "SELECT * FROM PERSON;";
 
-    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+  //  cout << "STATE OF TABLE BEFORE INSERT" << endl;
+
+ //   sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
 
     string sql("INSERT INTO `USER` (`id_user`,`first_name`,`last_name`,`middle_name`)"
                " VALUES(" + to_string(iduser) + ", '" + firstname + "', '" + lastname + "', '" + middlename + "');"
@@ -30,10 +42,11 @@ void createUser(size_t iduser, string firstname, string lastname, string middlen
         sqlite3_free(messaggeError);
 //        printf(messaggeError);
     }
-    else
-        std::cout << "Records created Successfully!" << std::endl;
+  //
+  //  else
+       // std::cout << "Records created Successfully!" << std::endl;
 
-    cout << "STATE OF TABLE AFTER INSERT" << endl;
+  //  cout << "STATE OF TABLE AFTER INSERT" << endl;
 
     sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
@@ -53,7 +66,7 @@ User selectUserById(size_t id){
         sqlite3_step( stmt );//executing the statement
         char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
     }
-    else
+  //  else
     {
         cout << "Failed to open db\n";
     }
@@ -73,6 +86,7 @@ User selectUserById(size_t id){
 
     try{ for(int i = 0;i<result.size();i++){
             if(stoi(result[0][i]) == id){
+               // cout << stoi(result[0][i]) << endl;
                 sqlite3_finalize(stmt);
                 sqlite3_close(db);
                 return User(id,result[1][i], result[2][i], result[3][i]);
@@ -98,7 +112,7 @@ User selectUserByCard(string card){
         sqlite3_step( stmt );//executing the statement
         char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
     }
-    else
+  //  else
     {
         cout << "Failed to open db\n";
     }
@@ -120,6 +134,8 @@ User selectUserByCard(string card){
     try{ for(int i = 0;i<result.size();i++){
             if(result[0][i] == card){
                 userId = stoi(result[1][i]);
+               // cout << stoi(result[0][i]) << endl;
+                //return User(id,result[1][i], result[2][i], result[3][i]);
             }
         }} catch (exception e) {
     }
@@ -157,6 +173,8 @@ User selectUserByCard(string card){
     try{ for(int i = 0;i<result1.size();i++){
             if(result1[0][i] == card){
                 userId = stoi(result[1][i]);
+                // cout << stoi(result[0][i]) << endl;
+                //return User(id,result[1][i], result[2][i], result[3][i]);
             }
         }} catch (exception e) {
     }
@@ -226,7 +244,7 @@ void getAllUsers(){// make not void
     int exit = sqlite3_open("ATM.db", &DB);
     //string query = "SELECT * FROM PERSON;";
 
-    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+   // cout << "STATE OF TABLE BEFORE INSERT" << endl;
 
    // sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
 
@@ -239,24 +257,13 @@ void getAllUsers(){// make not void
         printf(messaggeError);
     }
     else
-        std::cout << "Records selected Successfully!" << std::endl;
+      //  std::cout << "Records selected Successfully!" << std::endl;
 
-    cout << "STATE OF TABLE AFTER SELECT" << endl;
+  //  cout << "STATE OF TABLE AFTER SELECT" << endl;
 
     sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
     sqlite3_close(DB);
-
-
-
-
-
-
-
-
-
-    //--------------------
-
 
 }
 
@@ -267,7 +274,7 @@ void deleteUsers(size_t iduser){
     int exit = sqlite3_open("ATM.db", &DB);
    // string query = "SELECT * FROM PERSON;";
 
-    cout << "STATE OF TABLE BEFORE INSERT" << endl;
+   // cout << "STATE OF TABLE BEFORE INSERT" << endl;
 
   //  sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
 
@@ -279,10 +286,10 @@ void deleteUsers(size_t iduser){
         sqlite3_free(messaggeError);
         printf(messaggeError);
     }
-    else
-        std::cout << "Records deleted Successfully!" << std::endl;
+  //  else
+     //   std::cout << "Records deleted Successfully!" << std::endl;
 
-    cout << "STATE OF TABLE AFTER delete" << endl;
+ //   cout << "STATE OF TABLE AFTER delete" << endl;
 
     sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
