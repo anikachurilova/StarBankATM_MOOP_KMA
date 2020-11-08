@@ -69,45 +69,6 @@ void createUser(size_t iduser, string firstname, string lastname, string middlen
 
     sqlite3_exec(DB, sql.c_str(), callback, NULL, NULL);
 
-
-//    sql+= id_user;
-//    sql +=',';
-//    sql += first_name;
-
-//    rc = sqlite3_prepare_v2(db, sql, strlen(sql)+1, &stmt, NULL);
-//    if (rc != SQLITE_OK) {
-//        printf("Failed to prepare statement: %s\n\r", sqlite3_errstr(rc));
-//        sqlite3_close(db);
-//        //return 1;
-//    }
-//    else {
-//        printf("SQL statement prepared: OK\n\n\r");
-//    }
-//
-//    rc = sqlite3_bind_int(stmt, 1, id_user);
-//
-//
-//    if (rc != SQLITE_OK) {
-//        printf("Failed to bind parameter: %s\n\r", sqlite3_errstr(rc));
-//        sqlite3_close(db);
-//      //  return 1;
-//    }
-//    else {
-//        printf("SQL bind integer param: OK\n\n\r");
-//    }
-
-//    /* Execute SQL statement */
-//    rc = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
-//
-//    if( rc != SQLITE_OK ){
-//        fprintf(stderr, "SQL error: %s\n", zErrMsg);
-//        sqlite3_free(zErrMsg);
-//    } else {
-//        fprintf(stdout, "Records created successfully\n");
-//    }
-
- //   sqlite3_close(db);
-
     sqlite3_close(DB);
 
 }
@@ -129,9 +90,6 @@ User selectUserById(size_t id){
         cout << "Failed to open db\n";
     }
 
-
-
-
     vector<vector < string > > result;
 
     for( int i = 0; i < 4; i++ )
@@ -147,15 +105,18 @@ User selectUserById(size_t id){
 
     try{ for(int i = 0;i<result.size();i++){
             if(stoi(result[0][i]) == id){
-                cout << stoi(result[0][i]) << endl;
+               // cout << stoi(result[0][i]) << endl;
+                sqlite3_finalize(stmt);
+                sqlite3_close(db);
                 return User(id,result[1][i], result[2][i], result[3][i]);
+
             }
         }} catch (exception e) {
     }
-
-
     sqlite3_finalize(stmt);
     sqlite3_close(db);
+
+    return User();
 }
 
 User selectUserByCard(string card){
