@@ -254,6 +254,7 @@ int main(int argc, char **argv)
     DepositAccount depositAccount;
     UniversalAccount universalAccount;
     CreditAccount creditAccount;
+    User user;
 
     cout << "ENTER YOUR CARD NUMBER: ";
     string card,pin;
@@ -279,7 +280,9 @@ int main(int argc, char **argv)
             depositAccount = getDepositAccountByCardAndPin(card,pin);
             universalAccount = getUniversalAccountByUserId(depositAccount.userId());
             creditAccount = getCreditAccountByUserId(depositAccount.userId());
-            cout << "WELCOME TO DEPOSIT ACCOUNT" << endl;
+            cout << "WELCOME ";
+            user = selectUserById(depositAccount.userId());
+            cout << user.firstName() << endl;
             while (true) {
                 cout << "CHOOSE OPERATION:" << endl;
                 cout << "1 - PUT MONEY" << endl;
@@ -330,16 +333,61 @@ int main(int argc, char **argv)
             universalAccount = getUniversalAccountByCardAndPin(card, pin);
             depositAccount = getDepositAccountByUserId(universalAccount.userId());
             creditAccount = getCreditAccountByUserId(universalAccount.userId());
-            cout << "WELCOME TO UNIVERSAL ACCOUNT" << endl;
+            cout << "WELCOME ";
+            user = selectUserById(universalAccount.userId());
+            cout << user.firstName() << endl;
+            while (true) {
+                cout << "CHOOSE OPERATION:" << endl;
+                cout << "1 - PUT MONEY" << endl;
+                cout << "2 -  WITHDRAW MONEY" << endl;
+                cout << "3 - CHECK BALANCE" << endl;
+                cout << "4 - CHECK LIMIT" << endl;
+                cout << "6 - CHANGE LIMIT" << endl;
+                int choosen;
+                cin >> choosen;
+                switch (choosen) {
+                    case 1:
+                        cout << "ENTER SUM TO PUT: " << endl;
+                        int sumPut;
+                        cin >> sumPut;
+                        putMoneyOnUniversalAccount(sumPut,universalAccount);
+                        break;
+                    case 2:
+                        cout << "ENTER SUM TO WITHDRAW: " << endl;
+                        int sumOut;
+                        cin >> sumOut;
+                        withdrawMoneyFromUniversalAccount(sumPut,universalAccount);
+                    case 3:
+                        cout << "YOUR BALANCE: " << universalAccount.sumOnBalance() <<endl;
+                        break;
+                    case 4:
+                        cout << "YOUR LIMIT: " << universalAccount.limit() << endl;
+                        break;
+                    case 5:
+                        cout << "ENTER NEW LIMIT: ";
+                        int limit;
+                        cin >> limit;
+                        depositAccount.limit() = limit;
+                        cout << "YOUR NEW LIMIT: " << depositAccount.limit() << endl;
+                        break;
+                    default:
+                        cout << "INVALID ENTER" << endl;
+                }
+                cout << endl;
+            }
         }
         case 'c':{
             creditAccount = getCreditAccountByCardAndPin(card, pin);
             universalAccount = getUniversalAccountByUserId(creditAccount.userId());
             depositAccount = getDepositAccountByUserId(creditAccount.userId());
-            cout << "WELCOME TO CREDIT ACCOUNT" << endl;
+            cout << "WELCOME ";
+            user = selectUserById(creditAccount.userId());
+            cout << user.firstName() << endl;
         }
 
     }
+
+
    //card.checkPin
    //card.getAllAccounts
 
