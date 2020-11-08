@@ -9,6 +9,7 @@
 
 #include "DBService/UserService.h"
 #include "DBService/TransactionService.h"
+#include "DBService/AccountService.h"
 #include <cstdio>
 #include <sqlite3.h>
 #include <stdlib.h>
@@ -250,7 +251,101 @@ int main(int argc, char **argv)
 
    //getAllTransactions();
 
-   getAllTransactionsByCard("1111");
+    DepositAccount depositAccount;
+    UniversalAccount universalAccount;
+    CreditAccount creditAccount;
+
+    cout << "ENTER YOUR CARD NUMBER: ";
+    string card,pin;
+    getline(cin, card);
+    // User user = selectUserByCard(card);
+
+    cout << "ENTER YOUR PIN: ";
+    getline(cin, pin);
+    char accountType;
+    if(!getDepositAccountByCardAndPin(card,pin).cardNumber().empty()){
+        accountType = 'd';
+//        User user = selectUserById(depositAccount.userId());
+//        cout << user.firstName() << endl;
+    }else if(!getUniversalAccountByCardAndPin(card,pin).cardNumber().empty()){
+        accountType = 'u';
+    } else if(!getCreditAccountByCardAndPin(card,pin).cardNumber().empty()){
+        accountType = 'c';
+    }else{
+        cout << "WRONG CARD OR PIN!!!" << endl;
+    }
+    switch (accountType) {
+        case 'd':{
+            depositAccount = getDepositAccountByCardAndPin(card,pin);
+            universalAccount = getUniversalAccountByUserId(depositAccount.userId());
+            creditAccount = getCreditAccountByUserId(depositAccount.userId());
+            cout << "WELCOME TO DEPOSIT ACCOUNT" << endl;
+            while (true) {
+                cout << "CHOOSE OPERATION:" << endl;
+                cout << "1 - PUT MONEY" << endl;
+                cout << "2 - CHECK BALANCE" << endl;
+                cout << "3 - CHECK LIMIT" << endl;
+                cout << "4 - CHANGE LIMIT" << endl;
+                cout << "5 - SHOW DEPOSIT TERM" << endl;
+                cout << "6 - SHOW DEPOSIT PERCENTAGE" << endl;
+                cout << "7 - SHOW DEPOSIT EXPIRY DATE" << endl;
+                int choosen;
+                cin >> choosen;
+                switch (choosen) {
+                    case 1:
+                        cout << "ENTER SUM TO PUT: " << endl;
+                        int sumPut;
+                        cin >> sumPut;
+                        putMoneyOnDepositAccount(sumPut,depositAccount);
+                        break;
+                    case 2:
+                        cout << "YOUR BALANCE: " << depositAccount.sumOnBalance() <<endl;
+                        break;
+                    case 3:
+                        cout << "YOUR LIMIT: " << depositAccount.limit() << endl;
+                        break;
+                    case 4:
+                        cout << "ENTER NEW LIMIT: ";
+                        int limit;
+                        cin >> limit;
+                        depositAccount.limit() = limit;
+                        cout << "YOUR NEW LIMIT: " << depositAccount.limit() << endl;
+                        break;
+                    case 5:
+                        cout << "YOUR DEPOSIT TERM: " << depositAccount.depositTerm() << endl;
+                        break;
+                    case 6:
+                        cout << "YOUR DEPOSIT PERCENTAGE: " << depositAccount.depositPercentage() << endl;
+                        break;
+                    case 7:
+                        cout << "YOUR DEPOSIT EXPIRY DATE: " << depositAccount.depositExpiryDate() << endl;
+                        break;
+                    default:
+                        cout << "INVALID ENTER" << endl;
+                }
+                cout << endl;
+            }
+        }
+        case 'u':{
+            universalAccount = getUniversalAccountByCardAndPin(card, pin);
+            depositAccount = getDepositAccountByUserId(universalAccount.userId());
+            creditAccount = getCreditAccountByUserId(universalAccount.userId());
+            cout << "WELCOME TO UNIVERSAL ACCOUNT" << endl;
+        }
+        case 'c':{
+            creditAccount = getCreditAccountByCardAndPin(card, pin);
+            universalAccount = getUniversalAccountByUserId(creditAccount.userId());
+            depositAccount = getDepositAccountByUserId(creditAccount.userId());
+            cout << "WELCOME TO CREDIT ACCOUNT" << endl;
+        }
+
+    }
+   //card.checkPin
+   //card.getAllAccounts
+
+
+
+  // getAllTransactionsByCard("1111");
    // getAllUsers();
    // sqlite3_close(db);
         return 0;
