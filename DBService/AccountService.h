@@ -160,7 +160,7 @@ UniversalAccount getUniversalAccountByUserId(size_t id){
 
     try{ for(int i = 0;i<result.size();i++){
             if(stoi(result[5][i]) == id){
-                cout << stoi(result[0][i]) << endl;
+               // cout << stoi(result[0][i]) << endl;
                 return UniversalAccount(stoi(result[5][i]), result[0][i],result[1][i], result[3][i], stoi(result[4][i]), 10000,false, result[2][i]);
                 sqlite3_finalize(stmt);
                 sqlite3_close(db);
@@ -206,7 +206,7 @@ UniversalAccount getUniversalAccountByCardAndPin(string card, string pin){
 
     try{ for(int i = 0;i<result.size();i++){
             if(result[0][i] == card && result[1][i] == pin){
-                cout << stoi(result[0][i]) << endl;
+              //  cout << stoi(result[0][i]) << endl;
                 return UniversalAccount(stoi(result[5][i]), result[0][i],result[1][i], result[3][i], stoi(result[4][i]), 10000,false, result[2][i]);
                 sqlite3_finalize(stmt);
                 sqlite3_close(db);
@@ -253,7 +253,7 @@ CreditAccount getCreditAccountByUserId(size_t id){
 
     try{ for(int i = 0;i<result.size();i++){
             if(stoi(result[8][i]) == id){
-                cout << stoi(result[0][i]) << endl;
+               // cout << stoi(result[0][i]) << endl;
                 return CreditAccount(stoi(result[5][i]),stoi(result[7][i]),id,result[0][i],result[1][i],result[3][i],stoi(result[4][i]),10000,false,result[2][i],result[6][i]);
                 sqlite3_finalize(stmt);
                 sqlite3_close(db);
@@ -298,7 +298,7 @@ CreditAccount getCreditAccountByCardAndPin(string card, string pin){
 
     try{ for(int i = 0;i<result.size();i++){
             if(result[0][i] == card && result[1][i] == pin){
-                cout << stoi(result[0][i]) << endl;
+                //cout << stoi(result[0][i]) << endl;
                 return CreditAccount(stoi(result[5][i]),stoi(result[7][i]),stoi(result[8][i]),result[0][i],result[1][i],result[3][i],stoi(result[4][i]),10000,false,result[2][i],result[6][i]);
                 sqlite3_finalize(stmt);
                 sqlite3_close(db);
@@ -342,7 +342,7 @@ DepositAccount getDepositAccountByUserId(size_t id){
 
     try{ for(int i = 0;i<result.size();i++){
             if(stoi(result[8][i]) == id){
-                cout << stoi(result[0][i]) << endl;
+               // cout << stoi(result[0][i]) << endl;
                 return DepositAccount(id,result[0][i],result[1][i],result[3][i],stoi(result[4][i]),10000,result[2][i],false,stoi(result[5][i]),stoi(result[7][i]),result[8][i]);
                 sqlite3_finalize(stmt);
                 sqlite3_close(db);
@@ -387,7 +387,7 @@ DepositAccount getDepositAccountByCardAndPin(string card, string pin){
 
     try{ for(int i = 0;i<result.size();i++){
             if(result[0][i] == card && result[1][i] == pin){
-                cout << stoi(result[0][i]) << endl;
+                //cout << stoi(result[0][i]) << endl;
                 return DepositAccount(stoi(result[8][i]),result[0][i],result[1][i],result[3][i],stoi(result[4][i]),10000,result[2][i],false,stoi(result[5][i]),stoi(result[7][i]),result[8][i]);
                 sqlite3_finalize(stmt);
                 sqlite3_close(db);
