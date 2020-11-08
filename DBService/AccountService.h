@@ -1,8 +1,3 @@
-
-//
-// Created by Valerie Luniakina on 08.11.2020.
-//
-
 #ifndef STARBANKATM_MOOP_KMA_ACCOUNTSERVICE_H
 #define STARBANKATM_MOOP_KMA_ACCOUNTSERVICE_H
 #include "../models/accounts/Account.h"
@@ -106,8 +101,6 @@ DepositAccount createDepositAccount(size_t userId, string cardNumber, string pin
     int exit = sqlite3_open("ATM.db", &DB);
 
     cout << "STATE OF TABLE BEFORE INSERT" << endl;
-
-
     DepositAccount da(userId,cardNumber,pin,cvv,sumOnBalance,limit,"",false,depositTerm,depositPercentage,"");
     expiryDate = da.expiryDate();
     depositExpiryDate = da.depositExpiryDate();
@@ -134,6 +127,141 @@ DepositAccount createDepositAccount(size_t userId, string cardNumber, string pin
 
     return da;
 }
+
+
+UniversalAccount getUniversalAccountByUserId(size_t id){
+
+    UniversalAccount ua();
+    sqlite3 *db;
+    sqlite3_stmt * stmt;
+
+    if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
+    {
+        sqlite3_prepare( db, "SELECT * FROM UNIVERSAL_ACCOUNT;", -1, &stmt, NULL );//preparing the statement
+        sqlite3_step( stmt );//executing the statement
+        char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
+    }
+    else
+    {
+        cout << "Failed to open db\n";
+    }
+
+    vector<vector < string > > result;
+
+    for( int i = 0; i < 6; i++ )
+        result.push_back(vector<string >());
+
+    while( sqlite3_column_text( stmt, 0 ) )
+    {
+        for( int i = 0; i < 6; i++ )
+            result[i].push_back( std::string( (char *)sqlite3_column_text( stmt, i ) ) );
+        sqlite3_step( stmt );
+    }
+
+
+    try{ for(int i = 0;i<result.size();i++){
+            if(stoi(result[0][5]) == id){
+                cout << stoi(result[0][i]) << endl;
+                ua = UniversalAccount(stoi(result[5][i]), result[0][i],result[1][i], result[3][i], stoi(result[4][i]), 10000,false, result[2][i]);
+            }
+        }} catch (exception e) {
+    }
+
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+
+    return ua;
+}
+
+
+UniversalAccount getCreditAccountByUserId(size_t id){
+
+    CreditAccount ca();
+    sqlite3 *db;
+    sqlite3_stmt * stmt;
+
+    if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
+    {
+        sqlite3_prepare( db, "SELECT * FROM CREDIT_ACCOUNT;", -1, &stmt, NULL );//preparing the statement
+        sqlite3_step( stmt );//executing the statement
+        char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
+    }
+    else
+    {
+        cout << "Failed to open db\n";
+    }
+
+    vector<vector < string > > result;
+
+    for( int i = 0; i < 9; i++ )
+        result.push_back(vector<string >());
+
+    while( sqlite3_column_text( stmt, 0 ) )
+    {
+        for( int i = 0; i < 9; i++ )
+            result[i].push_back( std::string( (char *)sqlite3_column_text( stmt, i ) ) );
+        sqlite3_step( stmt );
+    }
+
+
+    try{ for(int i = 0;i<result.size();i++){
+            if(stoi(result[0][8]) == id){
+                cout << stoi(result[0][i]) << endl;
+                ca = CreditAccount(stoi(result[5][i]),stoi(result[7][i]),id,result[0][i],result[1][i],result[3][i],stoi(result[4][i]),10000,false,result[2][i],result[6][i]);
+            }
+        }} catch (exception e) {
+    }
+
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+    return ca;
+}
+
+UniversalAccount getDepositAccountByUserId(size_t id){
+
+    DepositAccount da();
+    sqlite3 *db;
+    sqlite3_stmt * stmt;
+    if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
+    {
+        sqlite3_prepare( db, "SELECT * FROM DEPOSIT_ACCOUNT;", -1, &stmt, NULL );//preparing the statement
+        sqlite3_step( stmt );//executing the statement
+        char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
+    }
+    else
+    {
+        cout << "Failed to open db\n";
+    }
+
+    vector<vector < string > > result;
+
+    for( int i = 0; i < 9; i++ )
+        result.push_back(vector<string >());
+
+    while( sqlite3_column_text( stmt, 0 ) )
+    {
+        for( int i = 0; i < 9; i++ )
+            result[i].push_back( std::string( (char *)sqlite3_column_text( stmt, i ) ) );
+        sqlite3_step( stmt );
+    }
+
+
+    try{ for(int i = 0;i<result.size();i++){
+            if(stoi(result[0][8]) == id){
+                cout << stoi(result[0][i]) << endl;
+                da = DepositAccount(id,result[0][i],result[1][i],result[3][i],stoi(result[4][i]),10000,result[2][i],false,stoi(result[5][i]),stoi(result[7][i]),result[8][i]);
+            }
+        }} catch (exception e) {
+    }
+
+
+    sqlite3_finalize(stmt);
+    sqlite3_close(db);
+    return da;
+}
+
 
 void withdrawMoneyFromCreditAccount(size_t amount, CreditAccount& ca){
     sqlite3* DB;
@@ -235,8 +363,6 @@ void putMoneyOnUniversalAccount(size_t amount, UniversalAccount& ua){
     int exit = sqlite3_open("ATM.db", &DB);
 
     cout << "STATE OF TABLE BEFORE INSERT" << endl;
-
-
     string card = ua.cardNumber();
     double sum = ua.sumOnBalance() + amount;
     ua.putMoney(amount);
