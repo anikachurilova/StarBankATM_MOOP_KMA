@@ -9,6 +9,8 @@
 
 #include "DBService/UserService.h"
 #include "DBService/TransactionService.h"
+#include "DBService/AccountService.h"
+
 #include <cstdio>
 #include <sqlite3.h>
 #include <stdlib.h>
@@ -250,9 +252,51 @@ int main(int argc, char **argv)
 
    //getAllTransactions();
 
-   getAllTransactionsByCard("1111");
+   //getAllTransactionsByCard("1111");
+
+
+//   CreditAccount ca = getCreditAccountByUserId(11);
+//   cout << ca << endl;
    // getAllUsers();
    // sqlite3_close(db);
+
+
+
+
+    DepositAccount depositAccount;
+    UniversalAccount universalAccount;
+    CreditAccount creditAccount;
+    User user;
+
+    cout << getUniversalAccountByUserId(33);
+    cout << "ENTER YOUR CARD NUMBER: ";
+    string card,pin;
+    getline(cin, card);
+   // User user = selectUserByCard(card);
+
+    cout << "ENTER YOUR PIN: ";
+    getline(cin, pin);
+
+    if(!getDepositAccountByCardAndPin(card,pin).cardNumber().empty()){
+        depositAccount = getDepositAccountByCardAndPin(card,pin);
+      //  cout << depositAccount.userId() << endl;
+        universalAccount = getUniversalAccountByUserId(depositAccount.userId());
+        creditAccount = getCreditAccountByUserId(depositAccount.userId());
+        cout << "WELCOME" << endl;
+        user = selectUserById(depositAccount.userId());
+        cout << user.firstName() << endl;
+    }else if(!getUniversalAccountByCardAndPin(card,pin).cardNumber().empty()){
+        universalAccount =getUniversalAccountByCardAndPin(card,pin);
+    } else if(!getCreditAccountByCardAndPin(card,pin).cardNumber().empty()){
+        creditAccount = getCreditAccountByCardAndPin(card,pin);
+    }else{
+        cout << "WRONG CARD OR PIN!!!" << endl;
+    }
+
+
+
+    //card.checkPin
+    //card.getAllAccounts
         return 0;
 }
 
