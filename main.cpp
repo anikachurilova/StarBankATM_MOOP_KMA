@@ -255,25 +255,38 @@ int main(int argc, char **argv)
     UniversalAccount universalAccount;
     CreditAccount creditAccount;
     User user;
+    char accountType = ' ';
+    string card, pin;
 
-    cout << "ENTER YOUR CARD NUMBER: ";
-    string card,pin;
-    getline(cin, card);
-    // User user = selectUserByCard(card);
+    bool notEntered = true;
+    while(notEntered) {
+        cout << "ENTER YOUR CARD NUMBER: ";
+        getline(cin, card);
+        // User user = selectUserByCard(card);
+        for (int i = 0; i < 3; i++) {
+            cout << "ENTER YOUR PIN: ";
+            getline(cin, pin);
 
-    cout << "ENTER YOUR PIN: ";
-    getline(cin, pin);
-    char accountType;
-    if(!getDepositAccountByCardAndPin(card,pin).cardNumber().empty()){
-        accountType = 'd';
+            if (!getDepositAccountByCardAndPin(card, pin).cardNumber().empty()) {
+                accountType = 'd';
+                notEntered = false;
+                break;
 //        User user = selectUserById(depositAccount.userId());
 //        cout << user.firstName() << endl;
-    }else if(!getUniversalAccountByCardAndPin(card,pin).cardNumber().empty()){
-        accountType = 'u';
-    } else if(!getCreditAccountByCardAndPin(card,pin).cardNumber().empty()){
-        accountType = 'c';
-    }else{
-        cout << "WRONG CARD OR PIN!!!" << endl;
+            } else if (!getUniversalAccountByCardAndPin(card, pin).cardNumber().empty()) {
+                accountType = 'u';
+                notEntered = false;
+                break;
+            } else if (!getCreditAccountByCardAndPin(card, pin).cardNumber().empty()) {
+                accountType = 'c';
+                notEntered = false;
+                break;
+            } else {
+                cout << "WRONG CARD OR PIN!!!" << endl;
+            }
+        }
+        if(notEntered) cout << "REJECTING CARD..." << endl;
+
     }
     switch (accountType) {
         case 'd':{
@@ -296,7 +309,7 @@ int main(int argc, char **argv)
                 cin >> choosen;
                 switch (choosen) {
                     case 1:
-                        cout << "ENTER SUM TO PUT: " << endl;
+                        cout << "ENTER AMOUNT OF MONEY TO PUT: " << endl;
                         int sumPut;
                         cin >> sumPut;
                         putMoneyOnDepositAccount(sumPut,depositAccount);
@@ -347,16 +360,21 @@ int main(int argc, char **argv)
                 cin >> choosen;
                 switch (choosen) {
                     case 1:
-                        cout << "ENTER SUM TO PUT: " << endl;
+                        cout << "ENTER AMOUNT OF MONEY TO PUT: " << endl;
                         int sumPut;
                         cin >> sumPut;
                         putMoneyOnUniversalAccount(sumPut,universalAccount);
                         break;
                     case 2:
-                        cout << "ENTER SUM TO WITHDRAW: " << endl;
+                        cout << "ENTER AMOUNT OF MONEY TO WITHDRAW: " << endl;
                         int sumOut;
                         cin >> sumOut;
-                        withdrawMoneyFromUniversalAccount(sumPut,universalAccount);
+                        if(sumOut <= universalAccount.limit()){
+                            withdrawMoneyFromUniversalAccount(sumPut,universalAccount);
+                        }else{
+                            cout << "THE AMOUNT IS MORE THAN YOUR LIMIT"<< endl;
+                            cout << "ENTER ANOTHER AMOUNT OR CHANGE YOUR LIMIT" << endl;
+                        }
                     case 3:
                         cout << "YOUR BALANCE: " << universalAccount.sumOnBalance() <<endl;
                         break;
@@ -372,6 +390,7 @@ int main(int argc, char **argv)
                         break;
                     default:
                         cout << "INVALID ENTER" << endl;
+                        break;
                 }
                 cout << endl;
             }
@@ -384,6 +403,9 @@ int main(int argc, char **argv)
             user = selectUserById(creditAccount.userId());
             cout << user.firstName() << endl;
         }
+
+        default:
+            break;
 
     }
 
