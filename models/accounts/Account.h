@@ -7,10 +7,10 @@ using namespace std;
 #define STARBANKATM_MOOP_KMA_ACCOUNT_H
 class Account{
 private:
-    size_t _userId; //&||*????
+    size_t _userId;
     string _cardNumber;
     string _pin;
-    string _expiryDate; // maybe just date without time? find how to compare DateTime with Date
+    string _expiryDate;
     string _cvvNumber;
     size_t _limit;
     bool _isBocked;
@@ -18,7 +18,6 @@ protected:
     double _sumOnBalance;
 public:
     class BadAmount;
-    // class BadAccount;
     class BadPIN;
     Account(){};
     Account(size_t userId, string cardNumber, string pin, string cvv, double sumOnBalance, size_t limit, bool isBlocked ,
@@ -28,7 +27,7 @@ public:
     size_t& userId();
     string& cardNumber();
     string& pin();
-    string& expiryDate();//????
+    string& expiryDate();
     string& cvvNumber();
     double& sumOnBalance();
     size_t& limit();
@@ -37,14 +36,14 @@ public:
     const size_t& userId() const;
     const string& cardNumber() const;
     const string& pin() const;
-    const string& expiryDate() const;//????
+    const string& expiryDate() const;
     const string& cvvNumber() const;
     const double& sumOnBalance() const;
     const size_t& limit() const;
     const bool& isBlocked() const;
 
     virtual void putMoney(double amount) = 0;
-    //void blockCard(); // sho delaem tyt?
+
 };
 ostream& operator<<(ostream&, const Account&);
 

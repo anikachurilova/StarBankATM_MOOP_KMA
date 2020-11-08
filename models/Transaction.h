@@ -33,8 +33,6 @@ public:
    const string& cardSourceNumber() const;
    const string& cardDestinationNumber() const;
    const string& transactionDateTime() const;
-
-  // void makeTransaction(); to DAO
 };
 ostream& operator<<(ostream& os, const Transaction&);
 

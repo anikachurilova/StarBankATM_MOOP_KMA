@@ -7,11 +7,8 @@ Transaction::Transaction(double transactionSum, string cardSourceNumber, string 
         time_t now = time(0);
         char* dt = ctime(&now);
         _transactionDateTime = dt;
-        //_transactionId =
-
-        //create id and time
     }else{
-        _transactionId = transactionId;//????????????????????
+        _transactionId = transactionId;
         _transactionDateTime = transactionDateTime;
     }
     return;
