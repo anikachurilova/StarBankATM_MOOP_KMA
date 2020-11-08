@@ -7,8 +7,10 @@ private:
     double _creditDept;
     string _creditExpiryDate;
 public:
+    CreditAccount(){}
     CreditAccount(size_t creditTerm, double creditDept, size_t userId, string cardNumber, string pin, string cvv, double sumOnBalance, size_t limit, bool isBlocked, string expiryDate, string creditExpiryDate = "");
     ~CreditAccount();
+    CreditAccount& operator=(const CreditAccount&);
 
     size_t& creditTerm();
     double& creditDept();

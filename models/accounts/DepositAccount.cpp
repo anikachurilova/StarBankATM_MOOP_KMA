@@ -20,6 +20,12 @@ DepositAccount::DepositAccount(size_t userId, string cardNumber, string pin, str
 DepositAccount::~DepositAccount() {
 
 }
+DepositAccount& DepositAccount::operator=(const DepositAccount& account){
+    _depositTerm = account._depositTerm;
+    _depositPercentage = account._depositPercentage;
+    _depositExpiryDate = account._depositExpiryDate;
+    return *this;
+}
 
 size_t& DepositAccount::depositTerm(){
     return _depositTerm;

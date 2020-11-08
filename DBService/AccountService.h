@@ -1,8 +1,3 @@
-
-//
-// Created by Valerie Luniakina on 08.11.2020.
-//
-
 #ifndef STARBANKATM_MOOP_KMA_ACCOUNTSERVICE_H
 #define STARBANKATM_MOOP_KMA_ACCOUNTSERVICE_H
 #include "../models/accounts/Account.h"
@@ -106,8 +101,6 @@ DepositAccount createDepositAccount(size_t userId, string cardNumber, string pin
     int exit = sqlite3_open("ATM.db", &DB);
 
     cout << "STATE OF TABLE BEFORE INSERT" << endl;
-
-
     DepositAccount da(userId,cardNumber,pin,cvv,sumOnBalance,limit,"",false,depositTerm,depositPercentage,"");
     expiryDate = da.expiryDate();
     depositExpiryDate = da.depositExpiryDate();
@@ -144,7 +137,7 @@ UniversalAccount getUniversalAccountByUserId(size_t id){
 
     if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
     {
-        sqlite3_prepare( db, "SELECT * FROM `UNIVERSAL_ACCOUNT`;", -1, &stmt, NULL );//preparing the statement
+        sqlite3_prepare( db, "SELECT * FROM UNIVERSAL_ACCOUNT;", -1, &stmt, NULL );//preparing the statement
         sqlite3_step( stmt );//executing the statement
         char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
     }
@@ -190,7 +183,7 @@ UniversalAccount getCreditAccountByUserId(size_t id){
 
     if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
     {
-        sqlite3_prepare( db, "SELECT * FROM `CREDIT_ACCOUNT`;", -1, &stmt, NULL );//preparing the statement
+        sqlite3_prepare( db, "SELECT * FROM CREDIT_ACCOUNT;", -1, &stmt, NULL );//preparing the statement
         sqlite3_step( stmt );//executing the statement
         char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
     }
@@ -231,10 +224,9 @@ UniversalAccount getDepositAccountByUserId(size_t id){
     DepositAccount da();
     sqlite3 *db;
     sqlite3_stmt * stmt;
-
     if (sqlite3_open("ATM.db", &db) == SQLITE_OK)
     {
-        sqlite3_prepare( db, "SELECT * FROM `DEPOSIT_ACCOUNT`;", -1, &stmt, NULL );//preparing the statement
+        sqlite3_prepare( db, "SELECT * FROM DEPOSIT_ACCOUNT;", -1, &stmt, NULL );//preparing the statement
         sqlite3_step( stmt );//executing the statement
         char * str = (char *) sqlite3_column_text( stmt, 0 );///reading the 1st column of the result
     }
@@ -371,8 +363,6 @@ void putMoneyOnUniversalAccount(size_t amount, UniversalAccount& ua){
     int exit = sqlite3_open("ATM.db", &DB);
 
     cout << "STATE OF TABLE BEFORE INSERT" << endl;
-
-
     string card = ua.cardNumber();
     double sum = ua.sumOnBalance() + amount;
     ua.putMoney(amount);
