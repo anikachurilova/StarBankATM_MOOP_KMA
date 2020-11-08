@@ -20,7 +20,7 @@ public:
     class BadAmount;
     // class BadAccount;
     class BadPIN;
-    Account();
+    Account(){};
     Account(size_t userId, string cardNumber, string pin, string cvv, double sumOnBalance, size_t limit, bool isBlocked ,
             string expiryDate = "");
     ~Account();
